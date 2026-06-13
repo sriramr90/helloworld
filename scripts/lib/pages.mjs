@@ -3,7 +3,7 @@
 // make Bright & Early findable on Google and turn every reader into a distributor
 // — each share links back to a branded page, not just the raw source article.
 
-import { writeFile, mkdir, rm } from "node:fs/promises";
+import { writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
 
 export const SITE = "https://brightandearly.news";
@@ -68,8 +68,9 @@ function storyPage(story, edition) {
 
 /** Writes /s/<id>.html for every story and a sitemap.xml. Returns page count. */
 export async function writeSite(edition, publicDir) {
+  // Keep every day's pages (they're committed to the repo by the daily archive
+  // step) so old share links never 404. Same-id pages are simply overwritten.
   const dir = join(publicDir, "s");
-  await rm(dir, { recursive: true, force: true }); // clear yesterday's pages
   await mkdir(dir, { recursive: true });
 
   await Promise.all(
