@@ -31,12 +31,6 @@ jobs:
 
       - run: npm ci
 
-      # Auto-create the Pages site on first run so you don't have to flip the
-      # Settings → Pages source by hand.
-      - uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - name: Build the edition
         run: npm run build
         env:
