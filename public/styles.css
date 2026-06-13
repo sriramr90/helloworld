@@ -1,6 +1,5 @@
-/* Bright & Early — an unhurried, print-inspired reading surface.
-   Warm paper, real serifs, generous measure. Built to feel like a morning paper,
-   not a feed. */
+/* Bright & Early — a flip-through morning paper.
+   Warm paper, real serifs, columns. Topbar + horizontal page-flipper + pager. */
 
 :root {
   --paper: #f4f1ea;
@@ -11,135 +10,224 @@
   --card: #fbf9f3;
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --measure: 64ch;
 }
 
 * { box-sizing: border-box; }
-
 html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
   line-height: 1.5;
-  padding: 0 1.25rem env(safe-area-inset-bottom);
 }
 
-/* ---- Masthead ---- */
-.masthead {
-  max-width: 920px;
-  margin: 0 auto;
-  padding-top: 2.2rem;
-  text-align: center;
+/* ---- Topbar: masthead + section tabs ---- */
+.topbar {
+  flex: none;
+  border-bottom: 3px double var(--rule);
+  padding: env(safe-area-inset-top) 0.75rem 0;
 }
-.masthead__rule { border-top: 1px solid var(--rule); }
-.masthead__rule--top { border-top-width: 3px; border-bottom: 1px solid var(--rule); height: 5px; }
-.masthead__rule--bottom { margin-top: 1rem; border-top-width: 3px; }
-.masthead__title {
-  font-size: clamp(2.8rem, 11vw, 5.5rem);
-  margin: 1rem 0 0.2rem;
+.topbar__head {
+  text-align: center;
+  padding-top: 0.6rem;
+}
+.masthead {
+  margin: 0;
+  font-size: clamp(1.7rem, 7vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   font-variant: small-caps;
+  line-height: 1;
 }
-.masthead__tagline {
-  margin: 0;
-  font-style: italic;
-  color: var(--ink-soft);
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-}
-.masthead__dateline {
-  margin: 0.9rem 0 0.2rem;
-  font-family: var(--sans);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.72rem;
-  color: var(--ink-soft);
-}
-.masthead__sep { margin: 0 0.5rem; }
-
-/* ---- Paper body ---- */
-.paper {
-  max-width: 1080px;
-  margin: 2rem auto 3rem;
-}
-.loading { text-align: center; font-style: italic; color: var(--ink-soft); }
-
-.section { margin-bottom: 2.6rem; }
-.section__head {
+.dateline {
+  margin: 0.3rem 0 0.55rem;
   font-family: var(--sans);
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  font-size: 0.78rem;
+  font-size: 0.62rem;
+  color: var(--ink-soft);
+}
+.dateline__sep { margin: 0 0.4rem; }
+
+.tabs {
+  display: flex;
+  gap: 0.3rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-top: 1px solid var(--rule);
+}
+.tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: none;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.55rem 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  border-bottom: 2.5px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+.tab:hover { color: var(--ink); }
+.tab--active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---- Pager: horizontal scroll-snap of full-width pages ---- */
+.pager {
+  flex: 1;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.pager::-webkit-scrollbar { display: none; }
+
+.page {
+  flex: 0 0 100%;
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 1.3rem 1.25rem 2.5rem;
+}
+.page__inner { max-width: 1080px; margin: 0 auto; }
+
+.page__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
   border-bottom: 2px solid var(--rule);
-  padding-bottom: 0.4rem;
-  margin: 0 0 1.1rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.page__section {
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.page__num {
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
-.stories {
-  column-gap: 2.2rem;
-}
-@media (min-width: 720px) { .stories { column-count: 2; } }
-@media (min-width: 1024px) { .stories { column-count: 3; } }
+.loading { text-align: center; font-style: italic; color: var(--ink-soft); padding: 3rem 1rem; width: 100%; }
+
+/* ---- Stories: columns within a page ---- */
+.stories { column-gap: 2rem; }
+@media (min-width: 680px) { .stories { column-count: 2; } }
+@media (min-width: 1040px) { .stories { column-count: 3; } }
 
 .story {
   break-inside: avoid;
   display: inline-block;
   width: 100%;
-  margin: 0 0 1.6rem;
-  padding-bottom: 1.4rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.3rem;
   border-bottom: 1px solid var(--rule);
 }
+.story__media { margin-bottom: 0.6rem; }
 .story__img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: 3px;
-  margin-bottom: 0.7rem;
   background: #e7e1d2;
+  display: block;
 }
 .story__headline {
-  font-size: 1.32rem;
+  font-size: 1.24rem;
   line-height: 1.2;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.45rem;
   font-weight: 700;
 }
 .story__headline a { color: var(--ink); text-decoration: none; }
 .story__headline a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-.story__summary { margin: 0 0 0.6rem; color: var(--ink-soft); font-size: 1.02rem; }
-.story__source {
+.story__summary { margin: 0 0 0.6rem; color: var(--ink-soft); font-size: 1rem; }
+.story__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.8rem;
+  align-items: baseline;
   font-family: var(--sans);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--ink-soft);
+  letter-spacing: 0.08em;
 }
+.story__source { color: var(--ink-soft); }
+.story__more { color: var(--accent); text-decoration: none; font-weight: 700; }
+.story__more:hover { text-decoration: underline; }
 
-/* The lead story in the first section gets the front-page treatment. */
-.section--lead .story:first-child {
+/* The lead story on each page gets the front-page treatment. */
+.story--lead {
   column-span: all;
   border-bottom: 3px double var(--rule);
-  padding-bottom: 1.8rem;
-  margin-bottom: 1.8rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
-.section--lead .story:first-child .story__headline { font-size: clamp(1.8rem, 4.5vw, 2.8rem); }
-.section--lead .story:first-child .story__summary { font-size: 1.15rem; }
+.story--lead .story__headline { font-size: clamp(1.7rem, 4.5vw, 2.7rem); line-height: 1.12; }
+.story--lead .story__summary { font-size: 1.12rem; }
+@media (min-width: 680px) {
+  .story--lead { display: grid; grid-template-columns: 1.3fr 1fr; gap: 1.6rem; align-items: start; }
+  .story--lead .story__media { grid-row: span 3; margin: 0; }
+  .story--lead .story__img { aspect-ratio: 4 / 3; height: 100%; }
+}
 
-/* ---- Colophon ---- */
-.colophon {
-  max-width: var(--measure);
-  margin: 0 auto 4rem;
-  padding-top: 1.4rem;
-  border-top: 3px double var(--rule);
-  font-size: 0.92rem;
+/* ---- Bottom nav ---- */
+.navbar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0.5rem 1rem calc(0.5rem + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--rule);
+  background: var(--card);
+}
+.navbtn {
+  appearance: none;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.navbtn:hover:not(:disabled) { background: var(--accent); color: #fff; border-color: var(--accent); }
+.navbtn:disabled { opacity: 0.35; cursor: default; }
+.navstatus {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
   color: var(--ink-soft);
+  min-width: 3.5rem;
   text-align: center;
 }
-.colophon__meta { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.05em; }
 
 @media (prefers-color-scheme: dark) {
   :root {

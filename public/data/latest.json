@@ -1,6 +1,6 @@
 {
   "date": "2026-06-13",
-  "generatedAt": "2026-06-13T17:38:17.479Z",
+  "generatedAt": "2026-06-13T18:36:31.970Z",
   "masthead": "Bright & Early",
   "tagline": "Yesterday's good news, bright and early.",
   "sections": [
@@ -10,107 +10,97 @@
     "Community & Kindness",
     "Culture & Sport"
   ],
-  "storyCount": 10,
+  "storyCount": 9,
   "stories": [
     {
-      "headline": "France Salutes America Flying Over Statue of Liberty–Launching Month of Celebrations for 250 Years of Friendship",
-      "summary": "The skies over New York City turned red, white, and blue on Tuesday as France launched Mission #Liberté250 to celebrate America’s 250th anniversary—and to honor the enduring alliance between sister…",
-      "section": "World",
-      "positivity": 0.7,
-      "url": "https://www.goodnewsnetwork.org/france-salutes-america-flying-over-statue-of-liberty-for-250th-anniv/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
-    },
-    {
-      "headline": "Father and Son Break Three World Records in 18,000 Mile Cycle Around the World",
-      "summary": "A father and son broke 3 world records after spending a year cycling around the world. George Kohler and his 23-year-old son Josh set off on their mammoth challenge on March 29th, 2025, from their…",
-      "section": "World",
-      "positivity": 0.6,
-      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
-    },
-    {
-      "headline": "Good News in History, June 13",
-      "summary": "16 years ago today, the Japanese spacecraft Hayabusa, containing particles of the asteroid 25143 Itokawa, which it landed on in November 2005, returned to Earth. Hayabusa was the first spacecraft…",
-      "section": "World",
-      "positivity": 0.6,
-      "url": "https://www.goodnewsnetwork.org/events060613/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
-    },
-    {
-      "headline": "After Wandering Field All Day He Discovers 16th C. Diamond Ring Using his Metal Detector",
-      "summary": "At the end of a long day, a metal detector enthusiast in England unearthed a 16th-century ring with eight diamonds. Stuart Jones uncovered the stunning “once in a lifetime find” in the village of…",
-      "section": "World",
-      "positivity": 0.6,
-      "url": "https://www.goodnewsnetwork.org/after-wandering-field-all-day-he-discovers-16th-c-diamond-ring-using-his-metal-detector/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 22:08:35 +0000"
-    },
-    {
-      "headline": "Good News in History, June 12",
-      "summary": "250 years ago today, Virginia’s colonial legislature became the first to adopt a Bill of Rights. Known as the “Virginia Declaration of Rights,” it formed the basis and foundation of government in…",
-      "section": "World",
-      "positivity": 0.6,
-      "url": "https://www.goodnewsnetwork.org/events060612/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 07:00:00 +0000"
-    },
-    {
-      "headline": "In pictures: the circus artists rewriting the rules of ageing",
-      "summary": "‘There’s something radical about seeing people reclaim play, performance and visibility later in life,’ say those behind an over-50s circus The post In pictures: the circus artists rewriting the…",
-      "section": "World",
-      "positivity": 0.6,
-      "url": "https://www.positive.news/society/the-circus-artists-rewriting-the-rules-of-ageing/",
-      "image": null,
-      "source": "Positive News",
-      "publishedAt": "Fri, 12 Jun 2026 11:19:44 +0000"
-    },
-    {
-      "headline": "French Polynesia Protects Biodiverse Ocean Area Twice the Size of Arizona Teeming with Life",
-      "summary": "The French Polynesian government recently announced it will fully protect 200,000 square miles of ocean, an area about twice as large as Arizona that’s teeming with ocean life. Located near the…",
-      "section": "World",
-      "positivity": 0.5,
+      "headline": "French Polynesia establishes vast marine protected area",
+      "summary": "A significant portion of French Polynesia's ocean waters, twice the size of Arizona, is now protected, safeguarding rich marine biodiversity for the future.",
+      "section": "Environment",
+      "positivity": 0.9,
       "url": "https://www.goodnewsnetwork.org/french-polynesia-protects-biodiverse-ocean-area-twice-the-size-of-arizona-teeming-with-life/",
-      "image": null,
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/credit-Hannes-Klostermann.jpg",
       "source": "Good News Network",
       "publishedAt": "Sat, 13 Jun 2026 11:00:14 +0000"
     },
     {
-      "headline": "Your Weekly Horoscope – ‘Free Will Astrology’ by Rob Brezsny",
-      "summary": "Our partner Rob Brezsny, whose latest book is Astrology Is Real: Revelations from My Life as an Oracle, provides his weekly wisdom to enlighten our thinking and motivate our mood. Rob’s Free Will…",
-      "section": "World",
-      "positivity": 0.5,
-      "url": "https://www.goodnewsnetwork.org/horoscope-from-rob-brezsnys-free-will-astrology-6-13-2026/",
-      "image": null,
+      "headline": "Father and son break cycling world records on global journey",
+      "summary": "A father and son duo achieved three world records after completing an incredible 18,000-mile cycling expedition around the globe.",
+      "section": "Culture & Sport",
+      "positivity": 0.85,
+      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/father-and-son-1556830.jpg",
       "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 10:00:38 +0000"
+      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
     },
     {
-      "headline": "New Solar Method Turns Ocean Into Drinking Water, While Extracting Valuable Lithium Without Waste",
-      "summary": "A new energy-efficient desalination system produces fresh water without chemical additives and transforms leftover salts into useful materials. Communities from California to the Middle East…",
+      "headline": "France honors friendship with US with aerial salute",
+      "summary": "The French Air Force performed a stunning flyover above the Statue of Liberty, marking the start of celebrations for 250 years of Franco-American friendship.",
       "section": "World",
-      "positivity": 0.5,
+      "positivity": 0.8,
+      "url": "https://www.goodnewsnetwork.org/france-salutes-america-flying-over-statue-of-liberty-for-250th-anniv/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Patrouille-de-France-flies-over-Statue-of-Liberty-via-Official-page-of-the-Embassy-of-France-in-the-U.S.-on-FB.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
+    },
+    {
+      "headline": "City empowers youth to shape its future",
+      "summary": "Masaka City is actively listening to and implementing ideas from its young residents, fostering a more dynamic and responsive local government.",
+      "section": "Community & Kindness",
+      "positivity": 0.8,
+      "url": "https://reasonstobecheerful.world/masaka-youth-desk/",
+      "image": "https://reasonstobecheerful.world/wp-content/uploads/2026/06/shutterstock_2765968171-scaled.jpg",
+      "source": "Reasons to be Cheerful",
+      "publishedAt": "Fri, 12 Jun 2026 08:00:36 +0000"
+    },
+    {
+      "headline": "Innovative solar method creates fresh water and valuable resources",
+      "summary": "A new desalination process uses solar power to produce drinking water from the ocean and extract valuable lithium without creating waste.",
+      "section": "Science & Health",
+      "positivity": 0.75,
       "url": "https://www.goodnewsnetwork.org/new-solar-method-turns-ocean-into-drinking-water-while-extracting-valuable-lithium/",
-      "image": null,
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Vials-of-seawater-and-desalinated-water-with-recovered-salts-and-reusable-materials-Credit-University-of-Rochester-J-Adam-Fenster.jpg",
       "source": "Good News Network",
       "publishedAt": "Fri, 12 Jun 2026 18:59:48 +0000"
     },
     {
-      "headline": "The City That Doubled Down on Listening to Its Youth",
-      "summary": "On most mornings, the line in front of Masaka City Hall forms before the door opens. There are those in search of jobs and others looking to grow small businesses. A few come with complaints about…",
+      "headline": "Over-50s circus redefines artistry and ageing",
+      "summary": "Circus artists over the age of 50 are embracing performance and visibility, proving that age is no barrier to passion and creativity.",
+      "section": "Culture & Sport",
+      "positivity": 0.75,
+      "url": "https://www.positive.news/society/the-circus-artists-rewriting-the-rules-of-ageing/",
+      "image": "https://www.positive.news/wp-content/uploads/2026/06/Carol-1-scaled-e1781092663500.jpg",
+      "source": "Positive News",
+      "publishedAt": "Fri, 12 Jun 2026 11:19:44 +0000"
+    },
+    {
+      "headline": "Ancient diamond ring discovered by metal detectorist",
+      "summary": "A historical diamond ring from the 16th century was unearthed by a hobbyist, a rare and exquisite find connecting the present to a distant past.",
+      "section": "Community & Kindness",
+      "positivity": 0.7,
+      "url": "https://www.goodnewsnetwork.org/events060613/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
+    },
+    {
+      "headline": "Ancient diamond ring discovered by metal detectorist",
+      "summary": "A historical diamond ring from the 16th century was unearthed by a hobbyist, a rare and exquisite find connecting the present to a distant past.",
       "section": "World",
-      "positivity": 0.5,
-      "url": "https://reasonstobecheerful.world/masaka-youth-desk/",
-      "image": null,
-      "source": "Reasons to be Cheerful",
-      "publishedAt": "Fri, 12 Jun 2026 08:00:36 +0000"
+      "positivity": 0.7,
+      "url": "https://www.goodnewsnetwork.org/events060613/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
+    },
+    {
+      "headline": "Virginia adopted a Bill of Rights 250 years ago",
+      "summary": "On this day 250 years ago, Virginia's legislature adopted a foundational Bill of Rights, influencing governance and individual freedoms.",
+      "section": "World",
+      "positivity": 0.65,
+      "url": "https://www.goodnewsnetwork.org/events060612/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2019/12/George-Mason-founding-father-pubdomain.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Fri, 12 Jun 2026 07:00:00 +0000"
     }
   ]
 }

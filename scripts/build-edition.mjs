@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 import { yesterdayWindow, isoDate, truncate, clean } from "./lib/util.mjs";
 import { prefilter } from "./lib/prefilter.mjs";
 import { SECTIONS } from "./lib/curate.mjs";
+import { enrichImages } from "./lib/images.mjs";
 
 import { fetchGuardian } from "./sources/guardian.mjs";
 import { fetchGnews } from "./sources/gnews.mjs";
@@ -71,7 +72,11 @@ async function main() {
     stories = localEdition(candidates);
   }
 
-  // 4. Assemble and write the edition.
+  // 4. Fill in any missing story images from each article's og:image.
+  const cover = await enrichImages(stories);
+  console.log(`  🖼  Images: ${cover.have}/${cover.total} stories illustrated`);
+
+  // 5. Assemble and write the edition.
   const edition = {
     date: isoDate(now),
     generatedAt: now.toISOString(),

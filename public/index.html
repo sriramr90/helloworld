@@ -12,28 +12,26 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <header class="masthead">
-      <div class="masthead__rule masthead__rule--top"></div>
-      <h1 class="masthead__title">Bright &amp; Early</h1>
-      <p class="masthead__tagline">Yesterday's good news, bright and early</p>
-      <div class="masthead__dateline">
-        <span id="edition-date">—</span>
-        <span class="masthead__sep">·</span>
-        <span>Morning Edition</span>
+    <header class="topbar">
+      <div class="topbar__head">
+        <h1 class="masthead">Bright &amp; Early</h1>
+        <p class="dateline">
+          <span id="edition-date">—</span>
+          <span class="dateline__sep">·</span>
+          <span>Morning Edition</span>
+        </p>
       </div>
-      <div class="masthead__rule masthead__rule--bottom"></div>
+      <nav class="tabs" id="tabs" aria-label="Sections"></nav>
     </header>
 
-    <main id="paper" class="paper" aria-live="polite">
+    <main class="pager" id="pager" aria-live="polite">
       <p class="loading">Setting the type…</p>
     </main>
 
-    <footer class="colophon">
-      <p>
-        <strong>Bright &amp; Early</strong> is assembled fresh each morning from open news sources and
-        curated for stories that lift the day. Read it, smile, get on with things.
-      </p>
-      <p class="colophon__meta" id="colophon-meta"></p>
+    <footer class="navbar">
+      <button class="navbtn" id="prev" aria-label="Previous page" disabled>‹</button>
+      <span class="navstatus" id="page-status"></span>
+      <button class="navbtn" id="next" aria-label="Next page">›</button>
     </footer>
 
     <script src="/app.js" type="module"></script>
