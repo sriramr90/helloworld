@@ -1,4 +1,4 @@
-// goodvibe — daily edition builder.
+// Bright & Early — daily edition builder.
 //
 // Pipeline:  fetch (4 sources) -> local prefilter -> Claude curation -> write JSON
 //
@@ -26,7 +26,7 @@ const DATA_DIR = join(ROOT, "public", "data");
 async function main() {
   const now = new Date();
   const window = yesterdayWindow(now);
-  console.log(`\n📰 Building goodvibe edition for ${isoDate(now)} (window since ${window.fromISO})\n`);
+  console.log(`\n📰 Building Bright & Early edition for ${isoDate(now)} (window since ${window.fromISO})\n`);
 
   // 1. Fetch from all sources in parallel; never let one failure sink the build.
   const sinceMs = window.fromDate.getTime();
@@ -75,8 +75,8 @@ async function main() {
   const edition = {
     date: isoDate(now),
     generatedAt: now.toISOString(),
-    masthead: "goodvibe",
-    tagline: "Only the good news, every morning.",
+    masthead: "Bright & Early",
+    tagline: "Yesterday's good news, bright and early.",
     sections: SECTIONS,
     storyCount: stories.length,
     stories,

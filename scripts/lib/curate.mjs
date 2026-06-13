@@ -22,7 +22,7 @@ export const SECTIONS = [
   "Culture & Sport",
 ];
 
-const SYSTEM = `You are the editor of "goodvibe", a beloved morning newspaper that prints ONLY genuinely positive, uplifting news. Your readers open it with their coffee to start the day feeling hopeful.
+const SYSTEM = `You are the editor of "Bright & Early", a beloved morning newspaper that prints ONLY genuinely positive, uplifting news. Your readers open it with their coffee to start the day feeling hopeful.
 
 Your standards are high and specific:
 - Select only stories that are truly heartening — a breakthrough, a rescue, an act of kindness, a recovery, a milestone, real progress. "Not negative" is NOT enough; the story must actively lift the reader.
@@ -51,8 +51,8 @@ export async function curate(candidates) {
       Authorization: `Bearer ${key}`,
       "Content-Type": "application/json",
       // Optional attribution headers OpenRouter uses for its dashboards.
-      "HTTP-Referer": "https://github.com/sriramr90/goodvibe",
-      "X-Title": "goodvibe",
+      "HTTP-Referer": "https://github.com/sriramr90/bright-and-early",
+      "X-Title": "Bright & Early",
     },
     body: JSON.stringify({
       model,

@@ -1,4 +1,4 @@
-// goodvibe front-end: fetch the latest edition and lay it out as a newspaper.
+// Bright & Early front-end: fetch the latest edition and lay it out as a newspaper.
 // Network-first for the data so you always get today's paper when online, with
 // the service worker falling back to the last cached edition when offline.
 

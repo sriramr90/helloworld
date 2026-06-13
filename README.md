@@ -1,9 +1,9 @@
-# goodvibe
+# Bright & Early
 
-**Only the good news, every morning.**
+**Yesterday's good news, bright and early.**
 
-goodvibe is a daily *morning-newspaper* PWA. The world is full of exhausting,
-negative news — goodvibe is the opposite: a short, finished edition of genuinely
+Bright & Early is a daily *morning-newspaper* PWA. The world is full of exhausting,
+negative news — Bright & Early is the opposite: a short, finished edition of genuinely
 **positive** stories from around the world that you read with your coffee and
 then close, feeling a little better about things.
 

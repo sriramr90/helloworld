@@ -1,8 +1,8 @@
-// goodvibe service worker — installable + offline.
+// Bright & Early service worker — installable + offline.
 // App shell: cache-first.  Edition data: network-first with cache fallback,
 // so you always get the freshest paper online and yesterday's when offline.
 
-const VERSION = "goodvibe-v1";
+const VERSION = "bright-and-early-v1";
 const SHELL = [
   "/",
   "/index.html",

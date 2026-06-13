@@ -39,4 +39,4 @@ createServer(async (req, res) => {
   } catch {
     res.writeHead(404, { "content-type": "text/plain" }).end("Not found");
   }
-}).listen(PORT, () => console.log(`goodvibe preview → http://localhost:${PORT}`));
+}).listen(PORT, () => console.log(`Bright & Early preview → http://localhost:${PORT}`));

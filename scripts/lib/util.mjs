@@ -29,7 +29,7 @@ async function fetchWithTimeout(url, { timeoutMs, headers }) {
   try {
     return await fetch(url, {
       signal: controller.signal,
-      headers: { "user-agent": "goodvibe/0.1 (+https://github.com/sriramr90/goodvibe)", ...headers },
+      headers: { "user-agent": "bright-and-early/0.1 (+https://github.com/sriramr90/bright-and-early)", ...headers },
     });
   } catch {
     return null;
