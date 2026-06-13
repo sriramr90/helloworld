@@ -36,11 +36,14 @@ just GDELT + RSS, and gets richer as you add keys.
 ## Curation
 
 The "is this genuinely uplifting?" judgment is a **hybrid**: a cheap local
-prefilter removes obvious negatives and dedupes, then **Claude** reads the
-survivors and selects the best, writing a warm one-line summary and a clean
-headline for each, filed into sections.
+prefilter removes obvious negatives and dedupes, then an **LLM** (via
+[OpenRouter](https://openrouter.ai)) reads the survivors and selects the best,
+writing a warm one-line summary and a clean headline for each, filed into
+sections. OpenRouter is OpenAI-compatible and can route to any model — Claude,
+GPT, Llama, etc. — set `OPENROUTER_MODEL` to your pick (default
+`openai/gpt-4o-mini`).
 
-- **With `ANTHROPIC_API_KEY`** → Claude curates (recommended).
+- **With `OPENROUTER_API_KEY`** → LLM curates (recommended).
 - **Without it** → falls back to the local sentiment ranking, so `npm run build`
   still produces an edition with zero configuration.
 
@@ -56,8 +59,10 @@ npm run serve          # preview at http://localhost:8080
 ## Deploy (GitHub Pages)
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.**
-2. **Settings → Secrets and variables → Actions** — add the keys you have:
-   `ANTHROPIC_API_KEY`, `GUARDIAN_API_KEY`, `GNEWS_API_KEY` (all optional).
+2. **Settings → Secrets and variables → Actions** — add the keys you have
+   (all optional): secrets `OPENROUTER_API_KEY`, `GUARDIAN_API_KEY`,
+   `GNEWS_API_KEY`, and optionally a repository *variable* `OPENROUTER_MODEL`
+   to choose the model.
 3. The [`Daily edition`](.github/workflows/daily-edition.yml) workflow then runs
    every morning (and on each push), rebuilds the edition, and publishes it.
    Trigger it by hand any time from the **Actions** tab.

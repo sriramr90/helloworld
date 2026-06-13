@@ -54,19 +54,20 @@ async function main() {
   const candidates = prefilter(all, { limit: 70 });
   console.log(`  After prefilter: ${candidates.length} candidates`);
 
-  // 3. Curate. Claude if we have a key; otherwise the local ranking.
+  // 3. Curate. OpenRouter LLM if we have a key; otherwise the local ranking.
   let stories;
-  if (process.env.ANTHROPIC_API_KEY) {
+  if (process.env.OPENROUTER_API_KEY) {
     try {
       const { curate } = await import("./lib/curate.mjs");
       stories = await curate(candidates);
-      console.log(`  ✨ Claude curated ${stories.length} stories`);
+      const model = process.env.OPENROUTER_MODEL || "openai/gpt-4o-mini";
+      console.log(`  ✨ Curated ${stories.length} stories via OpenRouter (${model})`);
     } catch (err) {
       console.warn(`  ! curation failed (${err.message}); falling back to local ranking`);
       stories = localEdition(candidates);
     }
   } else {
-    console.log("  (no ANTHROPIC_API_KEY — using local sentiment ranking)");
+    console.log("  (no OPENROUTER_API_KEY — using local sentiment ranking)");
     stories = localEdition(candidates);
   }
 

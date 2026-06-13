@@ -35,7 +35,8 @@ jobs:
         run: npm run build
         env:
           # All optional — sources/curation without a key are skipped/fall back.
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_MODEL: ${{ vars.OPENROUTER_MODEL }}
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
 

@@ -1,6 +1,6 @@
 {
   "date": "2026-06-13",
-  "generatedAt": "2026-06-13T03:17:11.015Z",
+  "generatedAt": "2026-06-13T10:58:16.812Z",
   "masthead": "goodvibe",
   "tagline": "Only the good news, every morning.",
   "sections": [
@@ -10,7 +10,7 @@
     "Community & Kindness",
     "Culture & Sport"
   ],
-  "storyCount": 8,
+  "storyCount": 9,
   "stories": [
     {
       "headline": "France Salutes America Flying Over Statue of Liberty–Launching Month of Celebrations for 250 Years of Friendship",
@@ -21,6 +21,16 @@
       "image": null,
       "source": "Good News Network",
       "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
+    },
+    {
+      "headline": "Good News in History, June 13",
+      "summary": "16 years ago today, the Japanese spacecraft Hayabusa, containing particles of the asteroid 25143 Itokawa, which it landed on in November 2005, returned to Earth. Hayabusa was the first spacecraft…",
+      "section": "World",
+      "positivity": 0.6,
+      "url": "https://www.goodnewsnetwork.org/events060613/",
+      "image": null,
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
     },
     {
       "headline": "After Wandering Field All Day He Discovers 16th C. Diamond Ring Using his Metal Detector",
@@ -63,6 +73,16 @@
       "publishedAt": "Fri, 12 Jun 2026 05:00:05 +0000"
     },
     {
+      "headline": "Your Weekly Horoscope – ‘Free Will Astrology’ by Rob Brezsny",
+      "summary": "Our partner Rob Brezsny, whose latest book is Astrology Is Real: Revelations from My Life as an Oracle, provides his weekly wisdom to enlighten our thinking and motivate our mood. Rob’s Free Will…",
+      "section": "World",
+      "positivity": 0.5,
+      "url": "https://www.goodnewsnetwork.org/horoscope-from-rob-brezsnys-free-will-astrology-6-13-2026/",
+      "image": null,
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 10:00:38 +0000"
+    },
+    {
       "headline": "New Solar Method Turns Ocean Into Drinking Water, While Extracting Valuable Lithium Without Waste",
       "summary": "A new energy-efficient desalination system produces fresh water without chemical additives and transforms leftover salts into useful materials. Communities from California to the Middle East…",
       "section": "World",
@@ -71,16 +91,6 @@
       "image": null,
       "source": "Good News Network",
       "publishedAt": "Fri, 12 Jun 2026 18:59:48 +0000"
-    },
-    {
-      "headline": "Therapy Donkeys Prove Such a Balm of Calm to Psychiatric Hospital That Organizers Look to Expand",
-      "summary": "An animal therapy program at a psychiatric hospital in France is providing major improvements in care outcomes for patients. This is reported by the patients themselves, observed by hospital staff,…",
-      "section": "World",
-      "positivity": 0.5,
-      "url": "https://www.goodnewsnetwork.org/therapy-donkeys-prove-a-hit-among-psychiatric-hospital-patients-caregivers-look-to-expand-program/",
-      "image": null,
-      "source": "Good News Network",
-      "publishedAt": "Thu, 11 Jun 2026 18:30:28 +0000"
     },
     {
       "headline": "The City That Doubled Down on Listening to Its Youth",
