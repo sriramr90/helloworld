@@ -2,12 +2,14 @@
    Warm paper, real serifs, columns. Topbar + horizontal page-flipper + pager. */
 
 :root {
-  --paper: #f4f1ea;
-  --ink: #20201c;
-  --ink-soft: #585348;
-  --rule: #cfc7b4;
-  --accent: #b4541f; /* terracotta */
-  --card: #fbf9f3;
+  /* "Crisp Sunrise" — warm, energetic, modern-but-warm */
+  --paper: #fcfbf8;       /* alabaster reading canvas */
+  --ink: #2b2d42;         /* deep navy-grey (softer than black) */
+  --ink-soft: #6b6e83;    /* muted navy-grey */
+  --rule: #e9e5da;        /* warm hairline */
+  --accent: #ff7a59;      /* sunrise orange — buttons, active tabs, links */
+  --highlight: #ffd166;   /* golden yellow — accents & marks */
+  --card: #ffffff;        /* clean cards & inputs */
   --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
@@ -30,7 +32,6 @@ body {
 /* ---- Topbar: masthead + section tabs ---- */
 .topbar {
   flex: none;
-  border-bottom: 3px double var(--rule);
   padding: env(safe-area-inset-top) 0.75rem 0;
 }
 .topbar__head {
@@ -65,6 +66,9 @@ body {
 .tabs::-webkit-scrollbar { display: none; }
 .tab {
   flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
   appearance: none;
   background: none;
   border: none;
@@ -80,8 +84,18 @@ body {
   white-space: nowrap;
   transition: color 0.15s;
 }
+.tab svg { width: 15px; height: 15px; flex: none; }
 .tab:hover { color: var(--ink); }
 .tab--active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Reading-progress bar — the "horizon" that fills as you flip through. */
+.progress { height: 3px; background: var(--rule); }
+.progress__bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--highlight), var(--accent));
+  transition: width 0.35s ease;
+}
 
 /* ---- Pager: horizontal scroll-snap of full-width pages ---- */
 .pager {
@@ -412,12 +426,13 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1a1916;
-    --ink: #ece7da;
-    --ink-soft: #a39c8b;
-    --rule: #3b382f;
-    --card: #232119;
-    --accent: #e08a4f;
+    --paper: #1a1b22;       /* deep pre-dawn navy */
+    --ink: #ecebf2;
+    --ink-soft: #9a9db1;
+    --rule: #33353f;
+    --accent: #ff8a6b;      /* sunrise orange, lifted for dark */
+    --highlight: #ffd166;
+    --card: #23242e;
   }
-  .story__img, .reader__img { background: #2a271f; }
+  .story__img, .reader__img { background: #2a2c38; }
 }
