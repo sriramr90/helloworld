@@ -64,6 +64,9 @@ body {
   border-top: 1px solid var(--rule);
 }
 .tabs::-webkit-scrollbar { display: none; }
+/* Centre the tabs once they comfortably fit; stay left-aligned + scrollable on
+   narrow screens so the first tab is always reachable. */
+@media (min-width: 960px) { .tabs { justify-content: center; } }
 .tab {
   flex: none;
   display: inline-flex;
