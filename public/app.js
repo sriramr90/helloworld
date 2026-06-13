@@ -5,7 +5,7 @@
 // ─── Config: fill these in to switch features on ────────────────────────────
 const NEWSLETTER_USERNAME = ""; // your Buttondown username → enables email signup
 const TIP_URL = "https://buymeacoffee.com/brightandearlynews"; // enables tip jar
-const SOCIAL = { x: "", instagram: "" }; // handles (no @) → show social links
+const SOCIAL = { x: "brightearlynews", instagram: "" }; // handles (no @) → show social links
 // ────────────────────────────────────────────────────────────────────────────
 
 // Rounded line icons for each section tab (inline SVG — no icon library).
