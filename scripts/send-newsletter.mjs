@@ -86,7 +86,12 @@ async function main() {
   const subject = `🌅 Bright & Early — ${prettyDate(edition.date)}`;
   const res = await fetch("https://api.buttondown.email/v1/emails", {
     method: "POST",
-    headers: { Authorization: `Token ${key}`, "Content-Type": "application/json" },
+    headers: {
+      Authorization: `Token ${key}`,
+      "Content-Type": "application/json",
+      // Buttondown requires this to confirm an automated send to live subscribers.
+      "X-Buttondown-Live-Dangerously": "true",
+    },
     body: JSON.stringify({ subject, body: emailHtml(edition), status: "about_to_send" }),
   });
 
