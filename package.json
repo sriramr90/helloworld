@@ -5,9 +5,9 @@
   "type": "module",
   "description": "A daily morning-newspaper PWA of genuinely positive news from around the world.",
   "scripts": {
-    "build": "node scripts/build-edition.mjs",
+    "build": "node --env-file-if-exists=.env scripts/build-edition.mjs",
     "serve": "node scripts/serve.mjs",
-    "dev": "node scripts/build-edition.mjs && node scripts/serve.mjs"
+    "dev": "node --env-file-if-exists=.env scripts/build-edition.mjs && node scripts/serve.mjs"
   },
   "engines": {
     "node": ">=20"
