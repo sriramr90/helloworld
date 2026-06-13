@@ -1,22 +1,33 @@
 {
   "date": "2026-06-13",
-  "generatedAt": "2026-06-13T18:50:04.411Z",
+  "generatedAt": "2026-06-13T19:03:45.285Z",
   "masthead": "Bright & Early",
   "tagline": "Yesterday's good news, bright and early.",
   "sections": [
-    "World",
-    "Science & Health",
-    "Environment",
-    "Animals & Wildlife",
-    "Community & Kindness",
-    "Culture & Sport"
+    "Global Wins",
+    "Fair Play & Triumphs",
+    "Future Proof",
+    "Kind Humans",
+    "Earth Restored"
   ],
   "storyCount": 19,
   "stories": [
     {
-      "headline": "Breakthrough Cancer Treatment Allows Most Patients to Safely Skip Chemotherapy",
-      "summary": "A large UK trial reveals that 68% of high-risk breast cancer patients can safely avoid chemotherapy thanks to an existing genomic test.",
-      "section": "Science & Health",
+      "id": "s1tmdb82",
+      "headline": "New Solar Method Transforms Ocean Water into Drinkable Water and Lithium",
+      "summary": "An innovative solar desalination system produces fresh drinking water from the ocean, while also extracting valuable lithium from waste salts without producing harmful byproducts.",
+      "section": "Future Proof",
+      "positivity": 0.95,
+      "url": "https://www.goodnewsnetwork.org/new-solar-method-turns-ocean-into-drinking-water-while-extracting-valuable-lithium/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Vials-of-seawater-and-desalinated-water-with-recovered-salts-and-reusable-materials-Credit-University-of-Rochester-J-Adam-Fenster.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Fri, 12 Jun 2026 18:59:48 +0000"
+    },
+    {
+      "id": "s1ejes8",
+      "headline": "Groundbreaking trials show 68% of breast cancer patients can avoid chemotherapy",
+      "summary": "New trial results indicate that the majority of high-risk breast cancer patients can safely skip chemotherapy, thanks to genomic testing.",
+      "section": "Future Proof",
       "positivity": 0.95,
       "url": "https://www.optimistdaily.com/2026/06/podcast-transcript-june-12th-2026-from-a-340-year-slavery-law-finally-repealed-to-pancakes-for-cigarette-butts-10-solutions-this-week/",
       "image": "https://www.optimistdaily.com/wp-content/uploads/Podcast-Logo-3000-×-3000-px-2-12.png",
@@ -24,9 +35,10 @@
       "publishedAt": "Fri, 12 Jun 2026 16:30:43 +0000"
     },
     {
-      "headline": "France Honors America with Statue of Liberty Flyover, Kicking Off 250th Anniversary Celebrations",
-      "summary": "France's precision aerobatics team flew over the Statue of Liberty, painting the sky red, white, and blue to celebrate America's 250th anniversary and their enduring friendship.",
-      "section": "World",
+      "id": "s1m1au9",
+      "headline": "France and the US celebrate 250 years of friendship with celebratory flyover",
+      "summary": "France launched a special mission to celebrate America's 250th anniversary with a stunning aerial display over the Statue of Liberty, highlighting enduring alliance.",
+      "section": "Global Wins",
       "positivity": 0.9,
       "url": "https://www.goodnewsnetwork.org/france-salutes-america-flying-over-statue-of-liberty-for-250th-anniv/",
       "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Patrouille-de-France-flies-over-Statue-of-Liberty-via-Official-page-of-the-Embassy-of-France-in-the-U.S.-on-FB.jpg",
@@ -34,19 +46,21 @@
       "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
     },
     {
-      "headline": "French Polynesia Establishes Vast Marine Preserve Twice the Size of Arizona",
-      "summary": "The French Polynesian government has pledged to fully protect a massive 200,000 square mile ocean area, safeguarding a biodiversity hotspot teeming with marine life.",
-      "section": "Environment",
+      "id": "s31j0na",
+      "headline": "Tzield approved for Type 1 Diabetes treatment in the US",
+      "summary": "A significant medical breakthrough as Tzield receives approval for use in Stage 3 Type 1 Diabetes in the United States, offering new hope for patients.",
+      "section": "Future Proof",
       "positivity": 0.9,
-      "url": "https://www.goodnewsnetwork.org/french-polynesia-protects-biodiverse-ocean-area-twice-the-size-of-arizona-teeming-with-life/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/credit-Hannes-Klostermann.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 11:00:14 +0000"
+      "url": "https://www.prnewswire.com/news-releases/breakthrough-t1d-celebrates-approval-of-tzield-for-use-in-stage-3-type-1-diabetes-in-the-us-302799532.html",
+      "image": "https://mmx.prnewswire.com/media/MS1565437/BreakthroughT1D-New-Logo_Logo.jpg?id=OA2704718&p=facebook",
+      "source": "prnewswire.com",
+      "publishedAt": "20260613T011500Z"
     },
     {
-      "headline": "Sea Turtle Undergoes Remarkable Recovery After Severe Boat Strike",
-      "summary": "A sea turtle, dubbed 'Dark-Blue Yellow,' is making a remarkable recovery at a rehabilitation center after suffering injuries from what rescuers called the 'most severe' boat strike they've ever seen.",
-      "section": "Animals & Wildlife",
+      "id": "sunafvs",
+      "headline": "Rare sea turtle makes remarkable recovery after severe boat strike",
+      "summary": "A sea turtle, the most severely injured rescue case ever seen, is making a remarkable recovery at a Florida rehabilitation center.",
+      "section": "Earth Restored",
       "positivity": 0.9,
       "url": "https://www.goodgoodgood.co/articles/sea-turtle-boat-strike-belly-dark-blue-yellow",
       "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c2c10778bd7c33a4a0fbb_sea-turtle-boat-strike.jpg",
@@ -54,29 +68,32 @@
       "publishedAt": "Fri, 12 Jun 2026 15:58:00 GMT"
     },
     {
-      "headline": "City Empowers Its Youth to Drive Positive Change and Community Improvement",
-      "summary": "A city where young people's voices are prioritized in decision-making leads to enthusiastic engagement and tangible improvements for residents seeking jobs and better community services.",
-      "section": "Community & Kindness",
-      "positivity": 0.85,
-      "url": "https://reasonstobecheerful.world/masaka-youth-desk/",
-      "image": "https://reasonstobecheerful.world/wp-content/uploads/2026/06/shutterstock_2765968171-scaled.jpg",
-      "source": "Reasons to be Cheerful",
-      "publishedAt": "Fri, 12 Jun 2026 08:00:36 +0000"
-    },
-    {
-      "headline": "Innovative Solar System Desalinates Ocean Water, Generates Valuable Lithium",
-      "summary": "A new, energy-efficient solar method purifies ocean water into drinking water while extracting valuable lithium from the waste salts, offering a sustainable solution.",
-      "section": "Science & Health",
-      "positivity": 0.85,
-      "url": "https://www.goodnewsnetwork.org/new-solar-method-turns-ocean-into-drinking-water-while-extracting-valuable-lithium/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Vials-of-seawater-and-desalinated-water-with-recovered-salts-and-reusable-materials-Credit-University-of-Rochester-J-Adam-Fenster.jpg",
+      "id": "s5bxhie",
+      "headline": "French Polynesia protects vast ocean area twice the size of Arizona to preserve marine life",
+      "summary": "A significant conservation effort as French Polynesia vows to protect 200,000 square miles of ocean, a move that will safeguard diverse marine ecosystems.",
+      "section": "Earth Restored",
+      "positivity": 0.9,
+      "url": "https://www.goodnewsnetwork.org/french-polynesia-protects-biodiverse-ocean-area-twice-the-size-of-arizona-teeming-with-life/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/credit-Hannes-Klostermann.jpg",
       "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 18:59:48 +0000"
+      "publishedAt": "Sat, 13 Jun 2026 11:00:14 +0000"
     },
     {
-      "headline": "Rescuers Save Coyote Pup Entangled in Hundreds of Cactus Spikes",
-      "summary": "A tiny coyote pup was found severely injured and trapped in a cactus, but dedicated rescuers worked diligently to save its life.",
-      "section": "Animals & Wildlife",
+      "id": "ss4uoev",
+      "headline": "Solar power overtakes coal in the US, as dam removals and free education initiatives expand globally",
+      "summary": "A major shift in US energy as solar power surpasses coal, alongside record dam dismantles in Europe and new free education programs in Zambia.",
+      "section": "Global Wins",
+      "positivity": 0.85,
+      "url": "https://squirrel-news.net/news/solar-overtakes-coal-in-us-record-number-of-dams-dismantled-in-europe-free-education-for-every-child-in-zambia/",
+      "image": "https://cdn1-2010d.kxcdn.com/wp-content/uploads/2026/06/Houses-with-solar_panels.jpg",
+      "source": "Squirrel News",
+      "publishedAt": "Fri, 12 Jun 2026 13:31:56 +0000"
+    },
+    {
+      "id": "s6czexe",
+      "headline": "Rescuers save coyote pup after it gets tangled in hundreds of cactus spikes",
+      "summary": "A brave rescue operation successfully freed a young coyote pup that became severely entangled in a cactus, saving its life.",
+      "section": "Earth Restored",
       "positivity": 0.85,
       "url": "https://www.goodgoodgood.co/articles/coyote-pup-trapped-in-cactus-rescue",
       "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c38489654d30f3bc6d72f_coyote-pup-trapped-in-cactus-rescue.jpg",
@@ -84,29 +101,65 @@
       "publishedAt": "Fri, 12 Jun 2026 16:56:00 GMT"
     },
     {
-      "headline": "Solar Overtakes Coal in US, European Dams Dismantled, Zambia Guarantees Free Education",
-      "summary": "This week's positive news includes solar power surpassing coal in the US, a record number of dams removed in Europe to restore rivers, and Zambia instituting universal free education for all children.",
-      "section": "World",
-      "positivity": 0.8,
-      "url": "https://squirrel-news.net/news/solar-overtakes-coal-in-us-record-number-of-dams-dismantled-in-europe-free-education-for-every-child-in-zambia/",
-      "image": "https://cdn1-2010d.kxcdn.com/wp-content/uploads/2026/06/Houses-with-solar_panels.jpg",
-      "source": "Squirrel News",
-      "publishedAt": "Fri, 12 Jun 2026 13:31:56 +0000"
+      "id": "s18nlin1",
+      "headline": "Healthcare company sponsors graduation celebration for hospital patients",
+      "summary": "MedPro Healthcare Staffing created a memorable graduation celebration for long-term young patients at Joe DiMaggio Children's Hospital, marking their milestones.",
+      "section": "Kind Humans",
+      "positivity": 0.85,
+      "url": "https://www.manilatimes.net/2026/06/13/tmt-newswire/globenewswire/medpro-healthcare-staffing-sponsors-first-ever-graduation-celebration-for-long-term-patients-at-joe-dimaggio-childrens-hospital/2364676",
+      "image": "https://manilatimes.net/manilatimes/uploads/images/2026/06/13/1097305.png",
+      "source": "manilatimes.net",
+      "publishedAt": "20260612T193000Z"
     },
     {
-      "headline": "Teen Transforms College Savings into Restaurant Ownership, Fulfilling a Dream",
-      "summary": "An inspiring 18-year-old uses her college savings to buy the restaurant where she once worked as a dishwasher, demonstrating dedication and entrepreneurial spirit.",
-      "section": "Community & Kindness",
-      "positivity": 0.8,
-      "url": "https://www.upworthy.com/teen-buys-restuarant-with-her-college-savings-ex1/",
-      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_940a3e.jpg",
+      "id": "s1axlyql",
+      "headline": "Target employee's quick thinking saves a shopper's life",
+      "summary": "A vigilant Target employee prevented a shopper from leaving the store under concerning circumstances, ultimately saving her life.",
+      "section": "Kind Humans",
+      "positivity": 0.85,
+      "url": "https://www.upworthy.com/target-security-saves-woman-from-creep-ex1/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_d547a5.png",
       "source": "Upworthy",
-      "publishedAt": "Sat, 13 Jun 2026 16:44:19 +0000"
+      "publishedAt": "Fri, 12 Jun 2026 22:30:02 +0000"
     },
     {
-      "headline": "Lost Letter from Grandmother Rediscovered Through Online Blog",
-      "summary": "A woman discovers a cherished letter from her grandmother, lost for years, by chance when scrolling through a local blog, a poignant reunion with the past.",
-      "section": "Community & Kindness",
+      "id": "s1td1tk2",
+      "headline": "Father and son cycle around the world, breaking three world records",
+      "summary": "A father and son duo completed an incredible 18,000-mile cycling journey around the globe, setting three new world records along the way.",
+      "section": "Fair Play & Triumphs",
+      "positivity": 0.85,
+      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/father-and-son-1556830.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
+    },
+    {
+      "id": "shzdql7",
+      "headline": "First-ever twin baby elephant shrews born at zoo",
+      "summary": "A heartwarming and rare event as the first-ever twin baby elephant shrews have been born at a zoo, delighting staff and visitors.",
+      "section": "Earth Restored",
+      "positivity": 0.8,
+      "url": "https://www.ktbs.com/news/national/first-ever-twin-baby-elephant-shrews-born-at-zoo/article_00538bfe-4041-531e-8d1a-895f396f19ce.html",
+      "image": "https://bloximages.newyork1.vip.townnews.com/ktbs.com/content/tncms/assets/v3/editorial/c/7c/c7cc96c0-3848-5018-9a84-6b1ab2f24d9c/6a2c343b66bd8.image.png?crop=1762%2C925%2C0%2C125",
+      "source": "ktbs.com",
+      "publishedAt": "20260612T201500Z"
+    },
+    {
+      "id": "s1qdatk5",
+      "headline": "94 green sea turtle hatchlings released into the ocean",
+      "summary": "A joyous conservation effort as 94 green sea turtle hatchlings were successfully released into the ocean, marking a hopeful sign for the species.",
+      "section": "Earth Restored",
+      "positivity": 0.8,
+      "url": "https://www.sunstar.com.ph/zamboanga/94-green-sea-turtle-hatchlings-released-in-zamboanga-del-norte",
+      "image": "https://cf-images.assettype.com/sunstar%2F2026-06-13%2Fl1ytlif8%2Fturtle.jpg?rect=0%2C128%2C720%2C378&ar=40%3A21&auto=format%2Ccompress&ogImage=true&mode=crop&enlarge=true&overlay=false&overlay_position=bottom&overlay_width=100",
+      "source": "sunstar.com.ph",
+      "publishedAt": "20260613T121500Z"
+    },
+    {
+      "id": "s1bmc8tz",
+      "headline": "Woman discovers grandmother's lost letter to her after spotting handwriting online",
+      "summary": "A woman's online scrolling led to an emotional reunion with a long-lost letter from her grandmother, found decades after it was written.",
+      "section": "Kind Humans",
       "positivity": 0.8,
       "url": "https://www.upworthy.com/pn-grandmothers-letter-little-free-library-dc/",
       "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2026/06/Letter-1.png",
@@ -114,19 +167,21 @@
       "publishedAt": "Sat, 13 Jun 2026 00:06:18 +0000"
     },
     {
-      "headline": "Store Security Proves Crucial in Life-Saving Intervention",
-      "summary": "A woman's life was potentially saved when a perceptive Target employee prevented her from leaving the store, ensuring her safety.",
-      "section": "Community & Kindness",
+      "id": "s1rt9nt0",
+      "headline": "Indian sand artist wins historic international festival",
+      "summary": "Odisha sand artist Sudarsan Pattnaik achieves a historic victory, becoming the first Indian to receive the prestigious Russia Grand Sand Master Cup.",
+      "section": "Fair Play & Triumphs",
       "positivity": 0.8,
-      "url": "https://www.upworthy.com/target-security-saves-woman-from-creep-ex1/",
-      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_d547a5.png",
-      "source": "Upworthy",
-      "publishedAt": "Fri, 12 Jun 2026 22:30:02 +0000"
+      "url": "https://www.freepressjournal.in/lifestyle/first-indian-to-receive-the-russia-grand-sand-master-cup-odisha-sand-artist-sudarsan-pattnaik-clinches-historic-victory-at-international-festival",
+      "image": "https://media.assettype.com/freepressjournal/2026-06-12/qruo2kwr/sudarsan-pattnaik-wins-russia-grand-sand-master-cup-2026-2026-06-12-09-28-16.webp",
+      "source": "freepressjournal.in",
+      "publishedAt": "20260612T094500Z"
     },
     {
-      "headline": "Circus Artists Defy Age with Inspiring Performances",
-      "summary": "A captivating circus troupe composed of artists over 50 is challenging perceptions of aging, celebrating vitality, joy, and visibility through performance.",
-      "section": "Culture & Sport",
+      "id": "s10wdted",
+      "headline": "Vintage circus artists rewrite the rules of aging with vibrant performances",
+      "summary": "An inspiring group of circus performers over 50 are challenging age stereotypes by reclaiming their passion for performance and visibility.",
+      "section": "Fair Play & Triumphs",
       "positivity": 0.8,
       "url": "https://www.positive.news/society/the-circus-artists-rewriting-the-rules-of-ageing/",
       "image": "https://www.positive.news/wp-content/uploads/2026/06/Carol-1-scaled-e1781092663500.jpg",
@@ -134,9 +189,21 @@
       "publishedAt": "Fri, 12 Jun 2026 11:19:44 +0000"
     },
     {
-      "headline": "Flight Attendant's Unexpected 'Blessing' Found in a Discarded Barf Bag",
-      "summary": "A flight attendant nearly discarded a sealed barf bag, only to discover an unexpected and significant 'blessing' left inside by a thoughtful passenger.",
-      "section": "Community & Kindness",
+      "id": "s1w4h6br",
+      "headline": "Japanese spacecraft successfully returns asteroid samples to Earth",
+      "summary": "The Hayabusa spacecraft made history by returning particles from an asteroid to Earth, marking a significant achievement in space exploration.",
+      "section": "Future Proof",
+      "positivity": 0.8,
+      "url": "https://www.goodnewsnetwork.org/events060613/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
+    },
+    {
+      "id": "sx2ltal",
+      "headline": "Flight attendant finds 'incredible blessing' in a forgotten barf bag",
+      "summary": "A flight attendant's day took a turn for the better when a seemingly discarded barf bag contained a surprising and appreciated gift from a passenger.",
+      "section": "Kind Humans",
       "positivity": 0.75,
       "url": "https://www.upworthy.com/pn-flight-attendant-barf-bag-cash-tip/",
       "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2026/06/Preview-final-3.png",
@@ -144,64 +211,15 @@
       "publishedAt": "Sat, 13 Jun 2026 00:06:29 +0000"
     },
     {
-      "headline": "Campaign Highlights Lack of Menstrual Products in South Africa, Demands Action",
-      "summary": "Activists are bringing attention to the significant number of South African women who lack access to sanitary products, advocating for essential feminine hygiene resources.",
-      "section": "Environment",
+      "id": "s1lwp640",
+      "headline": "South Korea stages remarkable comeback to beat Czech Republic",
+      "summary": "A thrilling display of resilience as South Korea fought back from behind to secure a decisive victory against the Czech Republic.",
+      "section": "Fair Play & Triumphs",
       "positivity": 0.75,
-      "url": "https://www.goodgoodgood.co/articles/blood-stained-newspapers-period-poverty",
-      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c4d4f5b21bc9d37a830da_blood-stained-newspapers-period-poverty.jpg",
-      "source": "Good Good Good",
-      "publishedAt": "Fri, 12 Jun 2026 18:20:00 GMT"
-    },
-    {
-      "headline": "Divers Experience Awe-Inspiring Great White Shark Encounter During Marine Mission",
-      "summary": "Divers on a cleanup mission were astonished and deeply moved by an unexpected and magnificent encounter with a great white shark in the Mediterranean Sea.",
-      "section": "Animals & Wildlife",
-      "positivity": 0.75,
-      "url": "https://www.goodgoodgood.co/articles/great-white-shark-footage-mediterranean",
-      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c3f5bcb20040fb3686104_great-white-featured.jpg",
-      "source": "Good Good Good",
-      "publishedAt": "Fri, 12 Jun 2026 17:21:00 GMT"
-    },
-    {
-      "headline": "Father and Son Cycle into History Books with Three World Records",
-      "summary": "A father and son team have achieved an incredible feat, breaking three world records during their year-long, 18,000-mile cycling journey around the globe.",
-      "section": "Culture & Sport",
-      "positivity": 0.75,
-      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/father-and-son-1556830.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
-    },
-    {
-      "headline": "Teachers Share Subtle Yet Powerful Signs of True Parental Care",
-      "summary": "Educators highlight key observable behaviors that reveal a parent's deep engagement and genuine care for their child's well-being and development.",
-      "section": "Community & Kindness",
-      "positivity": 0.7,
-      "url": "https://www.upworthy.com/6-signs-parents-care-about-kid-ex1/",
-      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_1f29be.png",
-      "source": "Upworthy",
-      "publishedAt": "Sat, 13 Jun 2026 16:43:56 +0000"
-    },
-    {
-      "headline": "Hayabusa Spacecraft Successfully Returns Asteroid Samples to Earth",
-      "summary": "16 years ago today, the Japanese spacecraft Hayabusa returned to Earth, carrying precious particles from an asteroid landing, a historic feat in space exploration.",
-      "section": "Science & Health",
-      "positivity": 0.7,
-      "url": "https://www.goodnewsnetwork.org/events060613/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
-    },
-    {
-      "headline": "Weekly Round-Up: Bees Thrive, Mangroves Flourish, and Pride Parades Celebrate Inclusivity",
-      "summary": "This week's positive news includes exciting developments for bee populations, flourishing mangrove ecosystems, and vibrant Pride parades celebrating diversity and community.",
-      "section": "Environment",
-      "positivity": 0.7,
-      "url": "https://www.goodgoodgood.co/articles/good-news-this-week-june-13-2026",
-      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c0ebb4b6c4eb72565d5d3_Good-News-This-Week-June-13-2026.jpg",
-      "source": "Good Good Good",
-      "publishedAt": "Sat, 13 Jun 2026 12:00:00 GMT"
+      "url": "https://theeagleonline.com.ng/south-korea-fight-back-to-beat-czech-republic-in-guadalajara/",
+      "image": "https://theeagleonline.com.ng/wp-content/uploads/2022/12/FIFA-World-Cup-e1765004547823.jpeg",
+      "source": "theeagleonline.com.ng",
+      "publishedAt": "20260612T081500Z"
     }
   ]
 }

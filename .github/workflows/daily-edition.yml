@@ -44,6 +44,15 @@ jobs:
         with:
           path: public
 
+      # Email the edition to subscribers — ONLY on the daily schedule (never on
+      # pushes), and only if a Buttondown key is configured (else it no-ops).
+      - name: Send the morning newsletter
+        if: github.event_name == 'schedule'
+        run: node scripts/send-newsletter.mjs
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+          TIP_URL: ${{ vars.TIP_URL }}
+
   deploy:
     needs: build
     runs-on: ubuntu-latest

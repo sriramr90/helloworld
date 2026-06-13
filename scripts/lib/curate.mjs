@@ -15,13 +15,20 @@ const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 const DEFAULT_MODEL = "openai/gpt-4o-mini"; // override with OPENROUTER_MODEL
 
 export const SECTIONS = [
-  "World",
-  "Science & Health",
-  "Environment",
-  "Animals & Wildlife",
-  "Community & Kindness",
-  "Culture & Sport",
+  "Global Wins",
+  "Fair Play & Triumphs",
+  "Future Proof",
+  "Kind Humans",
+  "Earth Restored",
 ];
+
+// What belongs on each page — keeps the model filing accurately despite the
+// evocative (non-literal) section names.
+const SECTION_GUIDE = `- Global Wins — the day's biggest uplifting headlines: humanitarian breakthroughs, peace and diplomacy, historic milestones, major charitable efforts. This is the front page.
+- Fair Play & Triumphs — sport as uplift: incredible comebacks, sportsmanship between rivals, underdogs defying the odds, athletes giving back to their communities, fan-driven good.
+- Future Proof — human ingenuity solving real problems: medical milestones and new treatments, clean-energy and engineering advances, science and space breakthroughs.
+- Kind Humans — grassroots kindness and community: local heroes, random acts of kindness, neighbours helping neighbours, towns and families lifted up.
+- Earth Restored — conservation and wildlife wins: endangered species recovering, reforestation, oceans and habitats protected, successful clean-ups.`;
 
 const SYSTEM = `You are the editor of "Bright & Early", a beloved morning newspaper that prints ONLY genuinely positive, uplifting news. Your readers open it with their coffee to start the day feeling hopeful.
 
@@ -30,7 +37,8 @@ Your standards are high and specific:
 - Reject anything dark, tragic, fear-driven, politically inflammatory, or only superficially positive (e.g. a stock going up, a celebrity feud framed as "winning").
 - Reject clickbait and stories where the headline alone can't be trusted to be positive.
 - For each selected story write: a warm, human one-line summary (max ~30 words) and a clean, dignified headline (no ALL CAPS, no clickbait).
-- File each story into exactly one of these sections: ${SECTIONS.join(", ")}.
+- File each story into exactly one of these sections, using the EXACT section name shown:
+${SECTION_GUIDE}
 - Aim for about 5 stories per section (one strong lead plus a few more) — a minimum of 3 and a maximum of 6 per section. Spread coverage across all sections; if a section has no genuinely uplifting stories today, it's fine to leave it short.
 - Quality over quantity: NEVER pad a section with a weak story just to reach 5. Three excellent stories beat five mediocre ones.
 - Order matters: within each section, put the single most uplifting / most visually compelling story first — it becomes that page's lead.
@@ -90,7 +98,7 @@ export async function curate(candidates) {
       return {
         headline: pick.headline || original.title,
         summary: pick.summary || original.description,
-        section: SECTIONS.includes(pick.section) ? pick.section : "World",
+        section: SECTIONS.includes(pick.section) ? pick.section : SECTIONS[0],
         positivity: typeof pick.positivity === "number" ? pick.positivity : 0.5,
         url: original.url,
         image: original.image,

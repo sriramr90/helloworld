@@ -11,10 +11,11 @@ import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { yesterdayWindow, isoDate, truncate, clean } from "./lib/util.mjs";
+import { yesterdayWindow, isoDate, truncate, clean, makeId } from "./lib/util.mjs";
 import { prefilter } from "./lib/prefilter.mjs";
 import { SECTIONS } from "./lib/curate.mjs";
 import { enrichImages } from "./lib/images.mjs";
+import { writeSite } from "./lib/pages.mjs";
 
 import { fetchGuardian } from "./sources/guardian.mjs";
 import { fetchGnews } from "./sources/gnews.mjs";
@@ -76,22 +77,28 @@ async function main() {
   const cover = await enrichImages(stories);
   console.log(`  🖼  Images: ${cover.have}/${cover.total} stories illustrated`);
 
-  // 5. Assemble and write the edition.
+  // 5. Assemble and write the edition. Give each story a stable id (from its
+  //    URL) so the front-end and the per-story share pages agree.
+  const withIds = stories.map((s) => ({ id: makeId(s.url), ...s }));
   const edition = {
     date: isoDate(now),
     generatedAt: now.toISOString(),
     masthead: "Bright & Early",
     tagline: "Yesterday's good news, bright and early.",
     sections: SECTIONS,
-    storyCount: stories.length,
-    stories,
+    storyCount: withIds.length,
+    stories: withIds,
   };
 
   await mkdir(join(DATA_DIR, "editions"), { recursive: true });
   await writeFile(join(DATA_DIR, "latest.json"), JSON.stringify(edition, null, 2));
   await writeFile(join(DATA_DIR, "editions", `${edition.date}.json`), JSON.stringify(edition, null, 2));
 
-  console.log(`\n✅ Wrote edition with ${stories.length} stories to public/data/latest.json\n`);
+  // 6. Generate shareable per-story pages (Open Graph tags) + sitemap.
+  const pageCount = await writeSite(edition, join(ROOT, "public"));
+  console.log(`  🔗 Wrote ${pageCount} shareable story pages + sitemap.xml`);
+
+  console.log(`\n✅ Wrote edition with ${withIds.length} stories to public/data/latest.json\n`);
 }
 
 // Fallback edition built purely from the local prefilter scores.
@@ -99,7 +106,7 @@ function localEdition(candidates) {
   return candidates.slice(0, 16).map((c) => ({
     headline: c.title,
     summary: c.description ? truncate(clean(c.description), 200) : "",
-    section: "World",
+    section: SECTIONS[0],
     positivity: Math.min(1, 0.5 + c._score * 0.1),
     url: c.url,
     image: c.image,
