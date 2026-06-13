@@ -1,0 +1,19 @@
+{
+  "name": "goodvibe — only the good news",
+  "short_name": "goodvibe",
+  "description": "A daily morning newspaper of genuinely positive news from around the world.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f1ea",
+  "theme_color": "#f4f1ea",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

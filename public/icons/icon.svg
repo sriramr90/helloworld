@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="goodvibe">
+  <rect width="512" height="512" rx="96" fill="#f4f1ea" />
+  <g fill="none" stroke="#b4541f" stroke-width="28" stroke-linecap="round">
+    <!-- a rising sun: optimism, morning -->
+    <circle cx="256" cy="300" r="92" fill="#e08a4f" stroke="none" />
+    <path d="M256 120 v-40 M256 520 M120 300 h-40 M432 300 h40 M150 194 l-28 -28 M362 194 l28 -28" />
+  </g>
+  <path d="M120 360 q136 60 272 0" fill="none" stroke="#20201c" stroke-width="24" stroke-linecap="round" />
+</svg>

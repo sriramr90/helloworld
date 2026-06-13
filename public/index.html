@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>goodvibe — only the good news</title>
+    <meta name="description" content="A daily morning newspaper of genuinely positive news from around the world." />
+    <meta name="theme-color" content="#f4f1ea" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon.svg" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="masthead">
+      <div class="masthead__rule masthead__rule--top"></div>
+      <h1 class="masthead__title">goodvibe</h1>
+      <p class="masthead__tagline">Only the good news, every morning</p>
+      <div class="masthead__dateline">
+        <span id="edition-date">—</span>
+        <span class="masthead__sep">·</span>
+        <span>Morning Edition</span>
+      </div>
+      <div class="masthead__rule masthead__rule--bottom"></div>
+    </header>
+
+    <main id="paper" class="paper" aria-live="polite">
+      <p class="loading">Setting the type…</p>
+    </main>
+
+    <footer class="colophon">
+      <p>
+        <strong>goodvibe</strong> is assembled fresh each morning from open news sources and
+        curated for stories that lift the day. Read it, smile, get on with things.
+      </p>
+      <p class="colophon__meta" id="colophon-meta"></p>
+    </footer>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
