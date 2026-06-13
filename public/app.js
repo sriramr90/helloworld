@@ -3,7 +3,7 @@
 // a shareable link per story, and a "Back Page" with the newsletter + tip jar.
 
 // ─── Config: fill these in to switch features on ────────────────────────────
-const NEWSLETTER_USERNAME = ""; // your Buttondown username → enables email signup
+const NEWSLETTER_USERNAME = "brightandearly"; // Buttondown username → enables email signup
 const TIP_URL = "https://buymeacoffee.com/brightandearlynews"; // enables tip jar
 const SOCIAL = { x: "brightearlynews", instagram: "" }; // handles (no @) → show social links
 // ────────────────────────────────────────────────────────────────────────────
