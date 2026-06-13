@@ -23,7 +23,7 @@ function storyPage(story, edition) {
   const url = `${SITE}/s/${story.id}.html`;
   const title = `${esc(story.headline)} — Bright & Early`;
   const desc = esc(story.summary || "Genuinely positive news, every morning.");
-  const img = story.image ? esc(story.image) : `${SITE}/icons/icon.svg`;
+  const img = story.image ? esc(story.image) : `${SITE}/icons/icon-512.png`;
 
   return `<!doctype html>
 <html lang="en">
