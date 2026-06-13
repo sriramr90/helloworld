@@ -30,7 +30,9 @@ export function prefilter(items, { limit = 70 } = {}) {
   for (const it of items) {
     if (!it.title || !it.url) continue;
     const urlKey = it.url.split("?")[0];
-    const titleKey = it.title.toLowerCase().slice(0, 60);
+    // Normalised title signature: strip punctuation/case/extra spaces so the
+    // same headline syndicated across outlets collapses to one candidate.
+    const titleKey = it.title.toLowerCase().replace(/[^a-z0-9 ]/g, "").replace(/\s+/g, " ").trim().slice(0, 70);
     if (seenUrls.has(urlKey) || seenTitles.has(titleKey)) continue;
 
     const hay = `${it.title} ${it.description}`.toLowerCase();

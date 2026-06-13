@@ -24,7 +24,7 @@ export const SECTIONS = [
 
 // What belongs on each page — keeps the model filing accurately despite the
 // evocative (non-literal) section names.
-const SECTION_GUIDE = `- Global Wins — the day's biggest uplifting headlines: humanitarian breakthroughs, peace and diplomacy, historic milestones, major charitable efforts. This is the front page.
+const SECTION_GUIDE = `- Global Wins — THE FRONT PAGE. Put the 4–5 most significant and widely-relevant uplifting stories of the day here, pulled from ANY domain (a major medical breakthrough, a big environmental win, a landmark act of generosity, a historic milestone). These are the day's headline stories — so a story that runs on the front page does NOT also appear in its topical section below.
 - Fair Play & Triumphs — sport as uplift: incredible comebacks, sportsmanship between rivals, underdogs defying the odds, athletes giving back to their communities, fan-driven good.
 - Future Proof — human ingenuity solving real problems: medical milestones and new treatments, clean-energy and engineering advances, science and space breakthroughs.
 - Kind Humans — grassroots kindness and community: local heroes, random acts of kindness, neighbours helping neighbours, towns and families lifted up.
@@ -39,7 +39,8 @@ Your standards are high and specific:
 - For each selected story write: a warm, human one-line summary (max ~30 words) and a clean, dignified headline (no ALL CAPS, no clickbait).
 - File each story into exactly one of these sections, using the EXACT section name shown:
 ${SECTION_GUIDE}
-- Aim for about 5 stories per section (one strong lead plus a few more) — a minimum of 3 and a maximum of 6 per section. Spread coverage across all sections; if a section has no genuinely uplifting stories today, it's fine to leave it short.
+- Aim for about 4–5 stories per section (one strong lead plus a few more), max 6. Fill Global Wins first with the day's biggest stories, then distribute the rest across the topical sections.
+- NO DUPLICATES — this is critical. Never select the same story twice, and never select two stories about the same underlying event, even if they come from different outlets or have different headlines (e.g. several sites covering the same rescue, discovery, or announcement). Pick the single best version and drop the rest. Each candidate id may appear at most once, in exactly one section.
 - Quality over quantity: NEVER pad a section with a weak story just to reach 5. Three excellent stories beat five mediocre ones.
 - Order matters: within each section, put the single most uplifting / most visually compelling story first — it becomes that page's lead.
 
@@ -90,11 +91,19 @@ export async function curate(candidates) {
   const parsed = parseJson(content);
   const byId = new Map(candidates.map((c) => [c.id, c]));
 
+  // Safety net: even with the no-duplicates instruction, never let the same
+  // candidate (by id or by url) appear twice in the finished edition.
+  const seenIds = new Set();
+  const seenUrls = new Set();
+
   // Join the editor's picks back to the original candidate metadata (url, image…).
   return (parsed.stories || [])
     .map((pick) => {
       const original = byId.get(pick.id);
       if (!original) return null;
+      if (seenIds.has(pick.id) || seenUrls.has(original.url)) return null;
+      seenIds.add(pick.id);
+      seenUrls.add(original.url);
       return {
         headline: pick.headline || original.title,
         summary: pick.summary || original.description,
