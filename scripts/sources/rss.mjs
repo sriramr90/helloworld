@@ -4,31 +4,46 @@
 import { fetchText, clean, truncate, makeId } from "../lib/util.mjs";
 
 const FEEDS = [
+  // Dedicated positive-news outlets
   { name: "Good News Network", url: "https://www.goodnewsnetwork.org/feed/" },
   { name: "Positive News", url: "https://www.positive.news/feed/" },
   { name: "Reasons to be Cheerful", url: "https://reasonstobecheerful.world/feed/" },
+  { name: "Good Good Good", url: "https://www.goodgoodgood.co/articles/rss.xml" },
+  { name: "The Optimist Daily", url: "https://www.optimistdaily.com/feed/" },
+  { name: "Nice News", url: "https://nicenews.com/feed/" },
+  { name: "Upworthy", url: "https://www.upworthy.com/rss" },
+  // Solutions / constructive journalism (broader — leans on the LLM filter)
+  { name: "The Guardian (The Upside)", url: "https://www.theguardian.com/world/series/the-upside/rss" },
+  { name: "Fix The News", url: "https://fixthenews.com/feed" },
+  { name: "Squirrel News", url: "https://squirrel-news.net/feed/" },
 ];
 
 export async function fetchRss({ sinceMs }) {
-  const all = [];
-  for (const feed of FEEDS) {
-    const xml = await fetchText(feed.url);
-    if (!xml) continue;
-    for (const item of parseItems(xml)) {
-      const published = item.pubDate ? Date.parse(item.pubDate) : NaN;
-      if (Number.isFinite(published) && published < sinceMs) continue; // older than window
-      if (!item.title || !item.link) continue;
-      all.push({
-        id: makeId(item.link),
-        title: clean(item.title),
-        description: truncate(clean(item.description || ""), 280),
-        url: item.link,
-        image: item.image || null,
-        source: feed.name,
-        publishedAt: item.pubDate || null,
-      });
-    }
-  }
+  // Fetch all feeds in parallel; one slow/dead feed never blocks the others.
+  const results = await Promise.allSettled(
+    FEEDS.map(async (feed) => {
+      const xml = await fetchText(feed.url);
+      if (!xml) return [];
+      const items = [];
+      for (const item of parseItems(xml)) {
+        const published = item.pubDate ? Date.parse(item.pubDate) : NaN;
+        if (Number.isFinite(published) && published < sinceMs) continue; // older than window
+        if (!item.title || !item.link) continue;
+        items.push({
+          id: makeId(item.link),
+          title: clean(item.title),
+          description: truncate(clean(item.description || ""), 280),
+          url: item.link,
+          image: item.image || null,
+          source: feed.name,
+          publishedAt: item.pubDate || null,
+        });
+      }
+      return items;
+    })
+  );
+
+  const all = results.flatMap((r) => (r.status === "fulfilled" ? r.value : []));
   return { source: "rss", items: all };
 }
 

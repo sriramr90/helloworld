@@ -18,6 +18,7 @@ export const SECTIONS = [
   "World",
   "Science & Health",
   "Environment",
+  "Animals & Wildlife",
   "Community & Kindness",
   "Culture & Sport",
 ];
@@ -30,7 +31,9 @@ Your standards are high and specific:
 - Reject clickbait and stories where the headline alone can't be trusted to be positive.
 - For each selected story write: a warm, human one-line summary (max ~30 words) and a clean, dignified headline (no ALL CAPS, no clickbait).
 - File each story into exactly one of these sections: ${SECTIONS.join(", ")}.
-- Quality over quantity: pick the best 10–18 stories. A short, excellent edition beats a padded one.
+- Aim for about 5 stories per section (one strong lead plus a few more) — a minimum of 3 and a maximum of 6 per section. Spread coverage across all sections; if a section has no genuinely uplifting stories today, it's fine to leave it short.
+- Quality over quantity: NEVER pad a section with a weak story just to reach 5. Three excellent stories beat five mediocre ones.
+- Order matters: within each section, put the single most uplifting / most visually compelling story first — it becomes that page's lead.
 
 Respond with ONLY a JSON object, no prose and no markdown fences, in exactly this shape:
 {"stories":[{"id":"<candidate id>","headline":"...","summary":"...","section":"<one of the sections>","positivity":0.0}]}
@@ -56,7 +59,7 @@ export async function curate(candidates) {
     },
     body: JSON.stringify({
       model,
-      max_tokens: 8000,
+      max_tokens: 16000,
       messages: [
         { role: "system", content: SYSTEM },
         {
@@ -99,12 +102,32 @@ export async function curate(candidates) {
     .sort((a, b) => b.positivity - a.positivity);
 }
 
-// Tolerant JSON extraction: strip markdown fences, then take the outermost
-// {...} so we survive any stray prose a model might wrap around the JSON.
+// Tolerant JSON extraction: strip markdown fences, take the outermost {...},
+// and—if that still fails (e.g. the model's array got truncated mid-stream)—
+// salvage every complete story object we can find so a near-miss isn't a total
+// loss that drops us back to the local ranking.
 function parseJson(text) {
-  let t = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
+  const t = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
   const start = t.indexOf("{");
   const end = t.lastIndexOf("}");
-  if (start !== -1 && end !== -1) t = t.slice(start, end + 1);
-  return JSON.parse(t);
+  const core = start !== -1 && end !== -1 ? t.slice(start, end + 1) : t;
+
+  try {
+    return JSON.parse(core);
+  } catch {
+    // Salvage: story objects are flat (no nested braces), so grab each one.
+    const stories = [];
+    const re = /\{[^{}]*\}/g;
+    let m;
+    while ((m = re.exec(t))) {
+      try {
+        const obj = JSON.parse(m[0]);
+        if (obj && obj.id) stories.push(obj);
+      } catch {
+        /* skip a partial/garbled object */
+      }
+    }
+    if (stories.length) return { stories };
+    throw new Error("could not parse model JSON");
+  }
 }

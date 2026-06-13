@@ -52,7 +52,7 @@ async function main() {
   console.log(`\n  Total fetched: ${all.length}`);
 
   // 2. Local prefilter: drop obvious negatives, dedupe, rough positivity sort.
-  const candidates = prefilter(all, { limit: 70 });
+  const candidates = prefilter(all, { limit: 120 });
   console.log(`  After prefilter: ${candidates.length} candidates`);
 
   // 3. Curate. OpenRouter LLM if we have a key; otherwise the local ranking.

@@ -1,20 +1,41 @@
 {
   "date": "2026-06-13",
-  "generatedAt": "2026-06-13T18:36:31.970Z",
+  "generatedAt": "2026-06-13T18:50:04.411Z",
   "masthead": "Bright & Early",
   "tagline": "Yesterday's good news, bright and early.",
   "sections": [
     "World",
     "Science & Health",
     "Environment",
+    "Animals & Wildlife",
     "Community & Kindness",
     "Culture & Sport"
   ],
-  "storyCount": 9,
+  "storyCount": 19,
   "stories": [
     {
-      "headline": "French Polynesia establishes vast marine protected area",
-      "summary": "A significant portion of French Polynesia's ocean waters, twice the size of Arizona, is now protected, safeguarding rich marine biodiversity for the future.",
+      "headline": "Breakthrough Cancer Treatment Allows Most Patients to Safely Skip Chemotherapy",
+      "summary": "A large UK trial reveals that 68% of high-risk breast cancer patients can safely avoid chemotherapy thanks to an existing genomic test.",
+      "section": "Science & Health",
+      "positivity": 0.95,
+      "url": "https://www.optimistdaily.com/2026/06/podcast-transcript-june-12th-2026-from-a-340-year-slavery-law-finally-repealed-to-pancakes-for-cigarette-butts-10-solutions-this-week/",
+      "image": "https://www.optimistdaily.com/wp-content/uploads/Podcast-Logo-3000-×-3000-px-2-12.png",
+      "source": "The Optimist Daily",
+      "publishedAt": "Fri, 12 Jun 2026 16:30:43 +0000"
+    },
+    {
+      "headline": "France Honors America with Statue of Liberty Flyover, Kicking Off 250th Anniversary Celebrations",
+      "summary": "France's precision aerobatics team flew over the Statue of Liberty, painting the sky red, white, and blue to celebrate America's 250th anniversary and their enduring friendship.",
+      "section": "World",
+      "positivity": 0.9,
+      "url": "https://www.goodnewsnetwork.org/france-salutes-america-flying-over-statue-of-liberty-for-250th-anniv/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Patrouille-de-France-flies-over-Statue-of-Liberty-via-Official-page-of-the-Embassy-of-France-in-the-U.S.-on-FB.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
+    },
+    {
+      "headline": "French Polynesia Establishes Vast Marine Preserve Twice the Size of Arizona",
+      "summary": "The French Polynesian government has pledged to fully protect a massive 200,000 square mile ocean area, safeguarding a biodiversity hotspot teeming with marine life.",
       "section": "Environment",
       "positivity": 0.9,
       "url": "https://www.goodnewsnetwork.org/french-polynesia-protects-biodiverse-ocean-area-twice-the-size-of-arizona-teeming-with-life/",
@@ -23,69 +44,149 @@
       "publishedAt": "Sat, 13 Jun 2026 11:00:14 +0000"
     },
     {
-      "headline": "Father and son break cycling world records on global journey",
-      "summary": "A father and son duo achieved three world records after completing an incredible 18,000-mile cycling expedition around the globe.",
-      "section": "Culture & Sport",
-      "positivity": 0.85,
-      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/father-and-son-1556830.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
+      "headline": "Sea Turtle Undergoes Remarkable Recovery After Severe Boat Strike",
+      "summary": "A sea turtle, dubbed 'Dark-Blue Yellow,' is making a remarkable recovery at a rehabilitation center after suffering injuries from what rescuers called the 'most severe' boat strike they've ever seen.",
+      "section": "Animals & Wildlife",
+      "positivity": 0.9,
+      "url": "https://www.goodgoodgood.co/articles/sea-turtle-boat-strike-belly-dark-blue-yellow",
+      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c2c10778bd7c33a4a0fbb_sea-turtle-boat-strike.jpg",
+      "source": "Good Good Good",
+      "publishedAt": "Fri, 12 Jun 2026 15:58:00 GMT"
     },
     {
-      "headline": "France honors friendship with US with aerial salute",
-      "summary": "The French Air Force performed a stunning flyover above the Statue of Liberty, marking the start of celebrations for 250 years of Franco-American friendship.",
-      "section": "World",
-      "positivity": 0.8,
-      "url": "https://www.goodnewsnetwork.org/france-salutes-america-flying-over-statue-of-liberty-for-250th-anniv/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Patrouille-de-France-flies-over-Statue-of-Liberty-via-Official-page-of-the-Embassy-of-France-in-the-U.S.-on-FB.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 11:00:55 +0000"
-    },
-    {
-      "headline": "City empowers youth to shape its future",
-      "summary": "Masaka City is actively listening to and implementing ideas from its young residents, fostering a more dynamic and responsive local government.",
+      "headline": "City Empowers Its Youth to Drive Positive Change and Community Improvement",
+      "summary": "A city where young people's voices are prioritized in decision-making leads to enthusiastic engagement and tangible improvements for residents seeking jobs and better community services.",
       "section": "Community & Kindness",
-      "positivity": 0.8,
+      "positivity": 0.85,
       "url": "https://reasonstobecheerful.world/masaka-youth-desk/",
       "image": "https://reasonstobecheerful.world/wp-content/uploads/2026/06/shutterstock_2765968171-scaled.jpg",
       "source": "Reasons to be Cheerful",
       "publishedAt": "Fri, 12 Jun 2026 08:00:36 +0000"
     },
     {
-      "headline": "Innovative solar method creates fresh water and valuable resources",
-      "summary": "A new desalination process uses solar power to produce drinking water from the ocean and extract valuable lithium without creating waste.",
+      "headline": "Innovative Solar System Desalinates Ocean Water, Generates Valuable Lithium",
+      "summary": "A new, energy-efficient solar method purifies ocean water into drinking water while extracting valuable lithium from the waste salts, offering a sustainable solution.",
       "section": "Science & Health",
-      "positivity": 0.75,
+      "positivity": 0.85,
       "url": "https://www.goodnewsnetwork.org/new-solar-method-turns-ocean-into-drinking-water-while-extracting-valuable-lithium/",
       "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/Vials-of-seawater-and-desalinated-water-with-recovered-salts-and-reusable-materials-Credit-University-of-Rochester-J-Adam-Fenster.jpg",
       "source": "Good News Network",
       "publishedAt": "Fri, 12 Jun 2026 18:59:48 +0000"
     },
     {
-      "headline": "Over-50s circus redefines artistry and ageing",
-      "summary": "Circus artists over the age of 50 are embracing performance and visibility, proving that age is no barrier to passion and creativity.",
+      "headline": "Rescuers Save Coyote Pup Entangled in Hundreds of Cactus Spikes",
+      "summary": "A tiny coyote pup was found severely injured and trapped in a cactus, but dedicated rescuers worked diligently to save its life.",
+      "section": "Animals & Wildlife",
+      "positivity": 0.85,
+      "url": "https://www.goodgoodgood.co/articles/coyote-pup-trapped-in-cactus-rescue",
+      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c38489654d30f3bc6d72f_coyote-pup-trapped-in-cactus-rescue.jpg",
+      "source": "Good Good Good",
+      "publishedAt": "Fri, 12 Jun 2026 16:56:00 GMT"
+    },
+    {
+      "headline": "Solar Overtakes Coal in US, European Dams Dismantled, Zambia Guarantees Free Education",
+      "summary": "This week's positive news includes solar power surpassing coal in the US, a record number of dams removed in Europe to restore rivers, and Zambia instituting universal free education for all children.",
+      "section": "World",
+      "positivity": 0.8,
+      "url": "https://squirrel-news.net/news/solar-overtakes-coal-in-us-record-number-of-dams-dismantled-in-europe-free-education-for-every-child-in-zambia/",
+      "image": "https://cdn1-2010d.kxcdn.com/wp-content/uploads/2026/06/Houses-with-solar_panels.jpg",
+      "source": "Squirrel News",
+      "publishedAt": "Fri, 12 Jun 2026 13:31:56 +0000"
+    },
+    {
+      "headline": "Teen Transforms College Savings into Restaurant Ownership, Fulfilling a Dream",
+      "summary": "An inspiring 18-year-old uses her college savings to buy the restaurant where she once worked as a dishwasher, demonstrating dedication and entrepreneurial spirit.",
+      "section": "Community & Kindness",
+      "positivity": 0.8,
+      "url": "https://www.upworthy.com/teen-buys-restuarant-with-her-college-savings-ex1/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_940a3e.jpg",
+      "source": "Upworthy",
+      "publishedAt": "Sat, 13 Jun 2026 16:44:19 +0000"
+    },
+    {
+      "headline": "Lost Letter from Grandmother Rediscovered Through Online Blog",
+      "summary": "A woman discovers a cherished letter from her grandmother, lost for years, by chance when scrolling through a local blog, a poignant reunion with the past.",
+      "section": "Community & Kindness",
+      "positivity": 0.8,
+      "url": "https://www.upworthy.com/pn-grandmothers-letter-little-free-library-dc/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2026/06/Letter-1.png",
+      "source": "Upworthy",
+      "publishedAt": "Sat, 13 Jun 2026 00:06:18 +0000"
+    },
+    {
+      "headline": "Store Security Proves Crucial in Life-Saving Intervention",
+      "summary": "A woman's life was potentially saved when a perceptive Target employee prevented her from leaving the store, ensuring her safety.",
+      "section": "Community & Kindness",
+      "positivity": 0.8,
+      "url": "https://www.upworthy.com/target-security-saves-woman-from-creep-ex1/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_d547a5.png",
+      "source": "Upworthy",
+      "publishedAt": "Fri, 12 Jun 2026 22:30:02 +0000"
+    },
+    {
+      "headline": "Circus Artists Defy Age with Inspiring Performances",
+      "summary": "A captivating circus troupe composed of artists over 50 is challenging perceptions of aging, celebrating vitality, joy, and visibility through performance.",
       "section": "Culture & Sport",
-      "positivity": 0.75,
+      "positivity": 0.8,
       "url": "https://www.positive.news/society/the-circus-artists-rewriting-the-rules-of-ageing/",
       "image": "https://www.positive.news/wp-content/uploads/2026/06/Carol-1-scaled-e1781092663500.jpg",
       "source": "Positive News",
       "publishedAt": "Fri, 12 Jun 2026 11:19:44 +0000"
     },
     {
-      "headline": "Ancient diamond ring discovered by metal detectorist",
-      "summary": "A historical diamond ring from the 16th century was unearthed by a hobbyist, a rare and exquisite find connecting the present to a distant past.",
+      "headline": "Flight Attendant's Unexpected 'Blessing' Found in a Discarded Barf Bag",
+      "summary": "A flight attendant nearly discarded a sealed barf bag, only to discover an unexpected and significant 'blessing' left inside by a thoughtful passenger.",
+      "section": "Community & Kindness",
+      "positivity": 0.75,
+      "url": "https://www.upworthy.com/pn-flight-attendant-barf-bag-cash-tip/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2026/06/Preview-final-3.png",
+      "source": "Upworthy",
+      "publishedAt": "Sat, 13 Jun 2026 00:06:29 +0000"
+    },
+    {
+      "headline": "Campaign Highlights Lack of Menstrual Products in South Africa, Demands Action",
+      "summary": "Activists are bringing attention to the significant number of South African women who lack access to sanitary products, advocating for essential feminine hygiene resources.",
+      "section": "Environment",
+      "positivity": 0.75,
+      "url": "https://www.goodgoodgood.co/articles/blood-stained-newspapers-period-poverty",
+      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c4d4f5b21bc9d37a830da_blood-stained-newspapers-period-poverty.jpg",
+      "source": "Good Good Good",
+      "publishedAt": "Fri, 12 Jun 2026 18:20:00 GMT"
+    },
+    {
+      "headline": "Divers Experience Awe-Inspiring Great White Shark Encounter During Marine Mission",
+      "summary": "Divers on a cleanup mission were astonished and deeply moved by an unexpected and magnificent encounter with a great white shark in the Mediterranean Sea.",
+      "section": "Animals & Wildlife",
+      "positivity": 0.75,
+      "url": "https://www.goodgoodgood.co/articles/great-white-shark-footage-mediterranean",
+      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c3f5bcb20040fb3686104_great-white-featured.jpg",
+      "source": "Good Good Good",
+      "publishedAt": "Fri, 12 Jun 2026 17:21:00 GMT"
+    },
+    {
+      "headline": "Father and Son Cycle into History Books with Three World Records",
+      "summary": "A father and son team have achieved an incredible feat, breaking three world records during their year-long, 18,000-mile cycling journey around the globe.",
+      "section": "Culture & Sport",
+      "positivity": 0.75,
+      "url": "https://www.goodnewsnetwork.org/father-and-son-break-three-world-records-in-18000-mile-cycle-around-the-world/",
+      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2026/06/father-and-son-1556830.jpg",
+      "source": "Good News Network",
+      "publishedAt": "Sat, 13 Jun 2026 15:30:25 +0000"
+    },
+    {
+      "headline": "Teachers Share Subtle Yet Powerful Signs of True Parental Care",
+      "summary": "Educators highlight key observable behaviors that reveal a parent's deep engagement and genuine care for their child's well-being and development.",
       "section": "Community & Kindness",
       "positivity": 0.7,
-      "url": "https://www.goodnewsnetwork.org/events060613/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
+      "url": "https://www.upworthy.com/6-signs-parents-care-about-kid-ex1/",
+      "image": "https://www.upworthy.com/wp-content/uploads/sites/2/2025/11/origin_1f29be.png",
+      "source": "Upworthy",
+      "publishedAt": "Sat, 13 Jun 2026 16:43:56 +0000"
     },
     {
-      "headline": "Ancient diamond ring discovered by metal detectorist",
-      "summary": "A historical diamond ring from the 16th century was unearthed by a hobbyist, a rare and exquisite find connecting the present to a distant past.",
-      "section": "World",
+      "headline": "Hayabusa Spacecraft Successfully Returns Asteroid Samples to Earth",
+      "summary": "16 years ago today, the Japanese spacecraft Hayabusa returned to Earth, carrying precious particles from an asteroid landing, a historic feat in space exploration.",
+      "section": "Science & Health",
       "positivity": 0.7,
       "url": "https://www.goodnewsnetwork.org/events060613/",
       "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2025/06/A-half-scale-model-of-Hayabusa-credit-Pavel-Hrdlicka-CC-BY-SA-3.0.jpg",
@@ -93,14 +194,14 @@
       "publishedAt": "Sat, 13 Jun 2026 07:00:00 +0000"
     },
     {
-      "headline": "Virginia adopted a Bill of Rights 250 years ago",
-      "summary": "On this day 250 years ago, Virginia's legislature adopted a foundational Bill of Rights, influencing governance and individual freedoms.",
-      "section": "World",
-      "positivity": 0.65,
-      "url": "https://www.goodnewsnetwork.org/events060612/",
-      "image": "https://www.goodnewsnetwork.org/wp-content/uploads/2019/12/George-Mason-founding-father-pubdomain.jpg",
-      "source": "Good News Network",
-      "publishedAt": "Fri, 12 Jun 2026 07:00:00 +0000"
+      "headline": "Weekly Round-Up: Bees Thrive, Mangroves Flourish, and Pride Parades Celebrate Inclusivity",
+      "summary": "This week's positive news includes exciting developments for bee populations, flourishing mangrove ecosystems, and vibrant Pride parades celebrating diversity and community.",
+      "section": "Environment",
+      "positivity": 0.7,
+      "url": "https://www.goodgoodgood.co/articles/good-news-this-week-june-13-2026",
+      "image": "https://cdn.prod.website-files.com/5f6cc9cd16d59d990c8fca33/6a2c0ebb4b6c4eb72565d5d3_Good-News-This-Week-June-13-2026.jpg",
+      "source": "Good Good Good",
+      "publishedAt": "Sat, 13 Jun 2026 12:00:00 GMT"
     }
   ]
 }
