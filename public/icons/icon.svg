@@ -1,9 +1,27 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Bright & Early">
-  <rect width="512" height="512" rx="96" fill="#f4f1ea" />
-  <g fill="none" stroke="#b4541f" stroke-width="28" stroke-linecap="round">
-    <!-- a rising sun: optimism, morning -->
-    <circle cx="256" cy="300" r="92" fill="#e08a4f" stroke="none" />
-    <path d="M256 120 v-40 M256 520 M120 300 h-40 M432 300 h40 M150 194 l-28 -28 M362 194 l28 -28" />
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd166" />
+      <stop offset="1" stop-color="#ff7a59" />
+    </linearGradient>
+  </defs>
+
+  <!-- Alabaster tile -->
+  <rect width="512" height="512" rx="112" fill="#fcfbf8" />
+
+  <!-- Rays -->
+  <g stroke="#ffb454" stroke-width="20" stroke-linecap="round">
+    <line x1="256" y1="200" x2="256" y2="166" />
+    <line x1="326" y1="224" x2="346" y2="196" />
+    <line x1="186" y1="224" x2="166" y2="196" />
+    <line x1="366" y1="282" x2="398" y2="272" />
+    <line x1="146" y1="282" x2="114" y2="272" />
   </g>
-  <path d="M120 360 q136 60 272 0" fill="none" stroke="#20201c" stroke-width="24" stroke-linecap="round" />
+
+  <!-- Rising sun: a half-disc on the horizon, with a concentric ring -->
+  <path d="M156 320 A100 100 0 0 1 356 320 Z" fill="url(#sun)" />
+  <path d="M196 320 A60 60 0 0 1 316 320" fill="none" stroke="#fcfbf8" stroke-width="11" opacity="0.5" />
+
+  <!-- Horizon -->
+  <line x1="100" y1="320" x2="412" y2="320" stroke="#2b2d42" stroke-width="22" stroke-linecap="round" />
 </svg>
