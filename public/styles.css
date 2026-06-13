@@ -62,6 +62,7 @@ body {
   overflow-x: auto;
   scrollbar-width: none;
   border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 .tabs::-webkit-scrollbar { display: none; }
 /* Centre the tabs once they comfortably fit; stay left-aligned + scrollable on
