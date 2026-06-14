@@ -1,6 +1,11 @@
 {
-  "count": 2,
+  "count": 3,
   "editions": [
+    {
+      "date": "2026-06-03",
+      "storyCount": 12,
+      "lead": "A Stranger's Honesty Saves Two Girls' Summer Camp Dreams"
+    },
     {
       "date": "2026-06-02",
       "storyCount": 12,

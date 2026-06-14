@@ -595,3 +595,19 @@ body {
   text-align: center;
   color: var(--ink-soft);
 }
+
+/* "Browse past editions" button on the Back Page. */
+.archive-link {
+  appearance: none;
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+.archive-link:hover { border-color: var(--accent); color: var(--accent); }

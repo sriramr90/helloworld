@@ -25,6 +25,12 @@ const fmtDate = (iso) =>
     day: "numeric",
   });
 
+// The date of the edition currently on screen (set once it's loaded) and a
+// handle to open the archive panel (wired up in setupArchive, reused by the
+// Back Page link).
+let displayedDate = null;
+let openArchive = () => {};
+
 // ?date=YYYY-MM-DD loads that archived edition; otherwise the latest.
 function requestedDate() {
   const d = new URLSearchParams(location.search).get("date");
@@ -82,22 +88,23 @@ function setupArchive() {
   });
 
   let loaded = false;
-  btn.addEventListener("click", async () => {
+  openArchive = async () => {
     overlay.hidden = false;
     if (loaded) return;
     loaded = true;
     const editions = await loadArchive();
     const list = overlay.querySelector(".archive__list");
-    const current = requestedDate();
-    if (!editions.length) {
+    // "Past editions" — never list the one you're already reading (e.g. today's).
+    const past = editions.filter((ed) => ed.date !== displayedDate);
+    if (!past.length) {
       list.innerHTML = `<li class="archive__empty">No past editions yet.</li>`;
       return;
     }
     list.innerHTML = "";
-    editions.forEach((ed) => {
+    past.forEach((ed) => {
       const li = document.createElement("li");
       const a = document.createElement("a");
-      a.className = "archive__item" + (ed.date === current ? " archive__item--current" : "");
+      a.className = "archive__item";
       a.href = `/?date=${ed.date}`;
       a.innerHTML =
         `<span class="archive__date">${fmtDate(ed.date)}</span>` +
@@ -106,7 +113,8 @@ function setupArchive() {
       li.appendChild(a);
       list.appendChild(li);
     });
-  });
+  };
+  btn.addEventListener("click", openArchive);
 }
 
 // A slim banner when you're reading an archived (not the latest) edition.
@@ -271,15 +279,20 @@ function backPageEl(index, total) {
         ${newsletter}
       </div>
       ${tip ? `<div class="back__block">${tip}</div>` : ""}
+      <div class="back__block">
+        <button class="archive-link" type="button">📁 Browse past editions</button>
+      </div>
       ${social}
       <p class="back__colophon">Bright &amp; Early · assembled fresh each morning from open news sources, curated for stories that lift the day.</p>
     </div>`;
+  page.querySelector(".archive-link").addEventListener("click", () => openArchive());
   return page;
 }
 
 // --- Render ------------------------------------------------------------------
 
 function render(edition) {
+  displayedDate = edition.date;
   document.getElementById("edition-date").textContent = fmtDate(edition.date);
 
   const order = edition.sections || [];

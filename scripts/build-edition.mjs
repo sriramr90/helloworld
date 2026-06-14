@@ -9,7 +9,7 @@
 // article's own published-time meta — not the model's say-so. Requires
 // OPENROUTER_API_KEY; without it there's nothing to source from.
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -21,6 +21,64 @@ import { searchTopics } from "./sources/websearch.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = join(ROOT, "public", "data");
+
+// ── Cross-edition dedup ──────────────────────────────────────────────────────
+// A big story (a cancer trial, a championship) gets covered for several days by
+// different outlets — different URLs, near-identical gist. We don't want the same
+// story to reappear morning after morning, so we drop any candidate that closely
+// matches a headline already published in the previous few editions.
+const DEDUP_LOOKBACK_DAYS = 7;
+const STOP = new Set(
+  ("a an the of to in on for and or with from as at by is are was were be been new "
+    + "after over into out up down off than then this that it its his her their our your "
+    + "first new now has have had will can could would amid against more most just").split(" ")
+);
+const sig = (title) =>
+  new Set(
+    String(title || "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/)
+      .filter((w) => w.length > 2 && !STOP.has(w))
+  );
+const jaccard = (a, b) => {
+  if (!a.size || !b.size) return 0;
+  const inter = [...a].filter((x) => b.has(x)).length;
+  return inter / new Set([...a, ...b]).size;
+};
+
+// Stories published in the editions of the `days` mornings before `beforeDate`.
+async function recentlyPublished(beforeDate, days) {
+  const dir = join(DATA_DIR, "editions");
+  const lo = new Date(`${beforeDate}T12:00:00Z`);
+  lo.setUTCDate(lo.getUTCDate() - days);
+  const loStr = lo.toISOString().slice(0, 10);
+  let files = [];
+  try {
+    files = (await readdir(dir)).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
+  } catch {
+    return [];
+  }
+  const out = [];
+  for (const f of files) {
+    const d = f.slice(0, 10);
+    if (d >= beforeDate || d < loStr) continue; // only the window strictly before
+    try {
+      const ed = JSON.parse(await readFile(join(dir, f), "utf8"));
+      for (const s of ed.stories || []) out.push({ url: s.url, sig: sig(s.headline) });
+    } catch {
+      /* skip unreadable */
+    }
+  }
+  return out;
+}
+
+// Drop candidates whose URL or headline closely matches a recently-run story.
+function dropRecentDuplicates(candidates, prior) {
+  const priorUrls = new Set(prior.map((p) => p.url));
+  return candidates.filter((c) => {
+    if (priorUrls.has(c.url)) return false;
+    const cs = sig(c.title);
+    return !prior.some((p) => jaccard(cs, p.sig) >= 0.55);
+  });
+}
 
 async function main() {
   const now = new Date();
@@ -63,6 +121,14 @@ async function main() {
 
   if (!candidates.length) {
     console.warn("  ! Nothing matched the date window. If this keeps happening, widen with EDITION_DAYS=2.");
+  }
+
+  // 3b. Cross-edition dedup: drop anything already run in the last week's editions.
+  const preDedup = candidates.length;
+  const prior = await recentlyPublished(dateStr, DEDUP_LOOKBACK_DAYS);
+  candidates = dropRecentDuplicates(candidates, prior);
+  if (preDedup - candidates.length > 0) {
+    console.log(`  🧹 Deduped ${preDedup - candidates.length} story(ies) already run in the last ${DEDUP_LOOKBACK_DAYS} editions`);
   }
 
   // 4. Curate: the editor selects, files into sections, and promotes the warmest
