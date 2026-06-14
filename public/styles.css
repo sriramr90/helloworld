@@ -472,3 +472,126 @@ body {
   :root:not([data-theme="light"]) .story__img,
   :root:not([data-theme="light"]) .reader__img { background: #2a2c38; }
 }
+
+/* ---- Archive: button, banner, and the past-editions panel ---- */
+.archive-toggle {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 0.5rem);
+  left: 0.5rem;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.3rem;
+  z-index: 5;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.archive-toggle:hover { opacity: 1; }
+
+/* Slim banner shown while reading an archived (not the latest) edition. */
+.archivebar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  padding: 0.4rem 0.75rem;
+  background: var(--highlight);
+  color: #4a3a12;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+}
+.archivebar__back {
+  color: #4a3a12;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Overlay + bottom-sheet list of past editions. */
+.archive {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(20, 20, 28, 0.45);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.archive[hidden] { display: none; }
+.archive__sheet {
+  width: 100%;
+  max-width: 560px;
+  max-height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 -8px 40px rgba(0, 0, 0, 0.3);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.archive__head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.archive__title {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+.archive__close {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  padding: 0.3rem;
+}
+.archive__list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0.75rem 1rem;
+  overflow-y: auto;
+}
+.archive__item {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 0.75rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink);
+}
+.archive__item:hover { background: var(--card); }
+.archive__item--current {
+  background: var(--card);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+.archive__date {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.archive__lead {
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+.archive__count {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+.archive__empty {
+  list-style: none;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--ink-soft);
+}

@@ -16,7 +16,7 @@ import { fileURLToPath } from "node:url";
 import { easternDateStr, editionDates, isoDay, makeId } from "./lib/util.mjs";
 import { SECTIONS, curate, resummarize } from "./lib/curate.mjs";
 import { enrichArticles } from "./lib/enrich.mjs";
-import { writeSite } from "./lib/pages.mjs";
+import { writeSite, writeArchiveIndex } from "./lib/pages.mjs";
 import { searchTopics } from "./sources/websearch.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -24,8 +24,16 @@ const DATA_DIR = join(ROOT, "public", "data");
 
 async function main() {
   const now = new Date();
-  const dateStr = easternDateStr(now, 0); // publication day (this morning, ET)
-  const allowed = editionDates(now); // [yesterday] — or wider via EDITION_DAYS
+  // EDITION_DATE=YYYY-MM-DD backfills a specific publication day; like the daily
+  // flow, it sources YESTERDAY's news (the day before the edition date).
+  const override = process.env.EDITION_DATE;
+  const prevDay = (d) => {
+    const t = new Date(`${d}T12:00:00Z`);
+    t.setUTCDate(t.getUTCDate() - 1);
+    return t.toISOString().slice(0, 10);
+  };
+  const dateStr = override || easternDateStr(now, 0); // publication day (this morning, ET)
+  const allowed = override ? [prevDay(override)] : editionDates(now); // [yesterday] — or wider via EDITION_DAYS
   console.log(`\n📰 Building Bright & Early for ${dateStr} — only stories published ${allowed.join(" or ")} (US Eastern)\n`);
 
   if (!process.env.OPENROUTER_API_KEY) {
@@ -90,6 +98,10 @@ async function main() {
   // 7. Generate shareable per-story pages (Open Graph tags) + sitemap.
   const pageCount = await writeSite(edition, join(ROOT, "public"));
   console.log(`  🔗 Wrote ${pageCount} shareable story pages + sitemap.xml`);
+
+  // Refresh the archive index so the new edition is browsable from the front-end.
+  const archived = await writeArchiveIndex(join(ROOT, "public"));
+  console.log(`  🗓  Archive index: ${archived} editions`);
 
   console.log(`\n✅ Wrote edition with ${withIds.length} stories to public/data/latest.json\n`);
 }

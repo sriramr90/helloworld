@@ -99,9 +99,23 @@ export async function searchTopics(dateStr) {
   if (!key) throw new Error("OPENROUTER_API_KEY not set");
   const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL;
 
-  const results = await Promise.allSettled(
-    TOPICS.map((t) => searchTopic(t, dateStr, { key, model }))
-  );
+  // Retry each topic up to 3 times — the model occasionally returns prose or
+  // truncated JSON that fails to parse; a retry usually yields clean JSON, so a
+  // single flaky response no longer wipes out an entire section.
+  const withRetry = async (t) => {
+    let lastErr;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      try {
+        return await searchTopic(t, dateStr, { key, model });
+      } catch (err) {
+        lastErr = err;
+        console.warn(`  ↻ ${t.section}: attempt ${attempt} failed (${err?.message || err})`);
+      }
+    }
+    throw lastErr;
+  };
+
+  const results = await Promise.allSettled(TOPICS.map((t) => withRetry(t)));
 
   const seen = new Set();
   const candidates = [];

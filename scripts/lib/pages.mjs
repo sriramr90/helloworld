@@ -3,7 +3,7 @@
 // make Bright & Early findable on Google and turn every reader into a distributor
 // — each share links back to a branded page, not just the raw source article.
 
-import { writeFile, mkdir } from "node:fs/promises";
+import { writeFile, mkdir, readdir, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export const SITE = "https://brightandearly.news";
@@ -89,4 +89,40 @@ export async function writeSite(edition, publicDir) {
   await writeFile(join(publicDir, "sitemap.xml"), sitemap);
 
   return edition.stories.length;
+}
+
+/** Rebuild data/archive.json by scanning every saved edition. This is the index
+ *  the front-end's Archive panel reads to let readers browse past mornings. */
+export async function writeArchiveIndex(publicDir) {
+  const dir = join(publicDir, "data", "editions");
+  let files = [];
+  try {
+    files = (await readdir(dir)).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
+  } catch {
+    return 0; // no editions yet
+  }
+
+  const editions = [];
+  for (const f of files) {
+    try {
+      const ed = JSON.parse(await readFile(join(dir, f), "utf8"));
+      if (!ed.stories?.length) continue; // skip empty editions
+      const lead =
+        ed.stories.find((s) => s.section === "Global Wins") || ed.stories[0];
+      editions.push({
+        date: ed.date,
+        storyCount: ed.storyCount ?? ed.stories.length,
+        lead: lead?.headline || "",
+      });
+    } catch {
+      /* skip an unreadable edition file */
+    }
+  }
+
+  editions.sort((a, b) => b.date.localeCompare(a.date)); // newest first
+  await writeFile(
+    join(publicDir, "data", "archive.json"),
+    JSON.stringify({ count: editions.length, editions }, null, 2)
+  );
+  return editions.length;
 }

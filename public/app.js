@@ -25,14 +25,98 @@ const fmtDate = (iso) =>
     day: "numeric",
   });
 
+// ?date=YYYY-MM-DD loads that archived edition; otherwise the latest.
+function requestedDate() {
+  const d = new URLSearchParams(location.search).get("date");
+  return /^\d{4}-\d{2}-\d{2}$/.test(d || "") ? d : null;
+}
+
 async function loadEdition() {
+  const date = requestedDate();
+  const src = date ? `/data/editions/${date}.json` : "/data/latest.json";
   try {
-    const res = await fetch("/data/latest.json", { cache: "no-cache" });
+    const res = await fetch(src, { cache: "no-cache" });
     if (!res.ok) throw new Error("no edition");
     return await res.json();
   } catch {
     return null;
   }
+}
+
+// --- Archive: browse past mornings -------------------------------------------
+
+async function loadArchive() {
+  try {
+    const res = await fetch("/data/archive.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("no archive");
+    return (await res.json()).editions || [];
+  } catch {
+    return [];
+  }
+}
+
+function setupArchive() {
+  const btn = document.getElementById("archive-toggle");
+  if (!btn) return;
+
+  const overlay = document.createElement("div");
+  overlay.className = "archive";
+  overlay.hidden = true;
+  overlay.innerHTML = `
+    <div class="archive__sheet" role="dialog" aria-modal="true" aria-label="Past editions">
+      <div class="archive__head">
+        <h2 class="archive__title">Past editions</h2>
+        <button class="archive__close" type="button" aria-label="Close">✕</button>
+      </div>
+      <ul class="archive__list"></ul>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const close = () => (overlay.hidden = true);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) close();
+  });
+  overlay.querySelector(".archive__close").addEventListener("click", close);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !overlay.hidden) close();
+  });
+
+  let loaded = false;
+  btn.addEventListener("click", async () => {
+    overlay.hidden = false;
+    if (loaded) return;
+    loaded = true;
+    const editions = await loadArchive();
+    const list = overlay.querySelector(".archive__list");
+    const current = requestedDate();
+    if (!editions.length) {
+      list.innerHTML = `<li class="archive__empty">No past editions yet.</li>`;
+      return;
+    }
+    list.innerHTML = "";
+    editions.forEach((ed) => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.className = "archive__item" + (ed.date === current ? " archive__item--current" : "");
+      a.href = `/?date=${ed.date}`;
+      a.innerHTML =
+        `<span class="archive__date">${fmtDate(ed.date)}</span>` +
+        `<span class="archive__lead">${ed.lead || ""}</span>` +
+        `<span class="archive__count">${ed.storyCount} stories</span>`;
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  });
+}
+
+// A slim banner when you're reading an archived (not the latest) edition.
+function showArchiveBanner(date) {
+  const bar = document.createElement("div");
+  bar.className = "archivebar";
+  bar.innerHTML =
+    `<span>📁 Archived edition · ${fmtDate(date)}</span>` +
+    `<a class="archivebar__back" href="/">Back to today →</a>`;
+  document.body.insertBefore(bar, document.body.firstChild);
 }
 
 // --- Sharing -----------------------------------------------------------------
@@ -380,6 +464,9 @@ function setupTheme() {
 
 (async () => {
   setupTheme();
+  setupArchive();
+  const archivedDate = requestedDate();
+  if (archivedDate) showArchiveBanner(archivedDate);
   const edition = await loadEdition();
   if (edition && edition.stories?.length) render(edition);
   else
