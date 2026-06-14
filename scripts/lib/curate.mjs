@@ -65,7 +65,7 @@ export async function curate(candidates) {
   const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL;
 
   const catalogue = candidates
-    .map((c) => `id: ${c.id}\ntitle: ${c.title}\nsource: ${c.source}\nblurb: ${c.description || "(none)"}`)
+    .map((c) => `id: ${c.id}\ntitle: ${c.title}\nsource: ${c.source}\ntopic hint: ${c.section || "?"}\nblurb: ${c.description || "(none)"}`)
     .join("\n\n");
 
   const res = await fetch(OPENROUTER_URL, {
@@ -124,17 +124,74 @@ export async function curate(candidates) {
         image: original.image,
         source: original.source,
         publishedAt: original.publishedAt,
+        _text: original._text, // carry body text forward so resummarize() can use it
       };
     })
     .filter(Boolean)
     .sort((a, b) => b.positivity - a.positivity);
 }
 
+// Lever B, pass 2: the editor has already chosen the stories from their blurbs.
+// Now that we've fetched each chosen article's real body text (`_text`), have the
+// model rewrite the one-line summary so it carries a SPECIFIC, smile-worthy detail
+// — a name, a number, a vivid fact — instead of the thin RSS blurb. Only stories
+// that actually gained body text are sent; the rest keep their pass-1 summary.
+const RESUMMARIZE_SYSTEM = `You are the editor of "Bright & Early", a morning newspaper of genuinely heart-warming news. For each story you'll get its headline, your current one-line summary, and an excerpt of the real article. Rewrite the summary so it carries ONE specific, concrete, smile-worthy detail drawn from the article — a person's name, a number, a vivid fact — while staying warm and human. Keep it to a single sentence, max ~30 words, leading with the people and the feeling, not the number. Do NOT invent anything: use only facts present in the excerpt. If the excerpt adds nothing worth including, return the summary unchanged.
+
+Respond with ONLY a JSON object, no prose and no markdown fences, in exactly this shape:
+{"stories":[{"id":"<id>","summary":"..."}]}`;
+
+export async function resummarize(stories) {
+  const key = process.env.OPENROUTER_API_KEY;
+  if (!key) return stories;
+  const enriched = stories.filter((s) => s._text && s.id);
+  if (!enriched.length) return stories;
+  const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL;
+
+  const catalogue = enriched
+    .map((s) => `id: ${s.id}\nheadline: ${s.headline}\ncurrent summary: ${s.summary || "(none)"}\narticle excerpt: ${s._text}`)
+    .join("\n\n");
+
+  const res = await fetch(OPENROUTER_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${key}`,
+      "Content-Type": "application/json",
+      "HTTP-Referer": "https://github.com/sriramr90/bright-and-early",
+      "X-Title": "Bright & Early",
+    },
+    body: JSON.stringify({
+      model,
+      max_tokens: 8000,
+      messages: [
+        { role: "system", content: RESUMMARIZE_SYSTEM },
+        { role: "user", content: `Rewrite each summary with a specific detail from its article.\n\n${catalogue}` },
+      ],
+    }),
+  });
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "");
+    throw new Error(`OpenRouter ${res.status}: ${detail.slice(0, 300)}`);
+  }
+
+  const data = await res.json();
+  const content = data?.choices?.[0]?.message?.content;
+  if (!content) throw new Error("OpenRouter returned no content");
+
+  const parsed = parseJson(content);
+  const byId = new Map((parsed.stories || []).map((p) => [p.id, p.summary]));
+  return stories.map((s) => {
+    const better = byId.get(s.id);
+    return better && better.trim() ? { ...s, summary: better.trim() } : s;
+  });
+}
+
 // Tolerant JSON extraction: strip markdown fences, take the outermost {...},
 // and—if that still fails (e.g. the model's array got truncated mid-stream)—
 // salvage every complete story object we can find so a near-miss isn't a total
 // loss that drops us back to the local ranking.
-function parseJson(text) {
+export function parseJson(text) {
   const t = text.trim().replace(/^```(?:json)?/i, "").replace(/```$/, "").trim();
   const start = t.indexOf("{");
   const end = t.lastIndexOf("}");

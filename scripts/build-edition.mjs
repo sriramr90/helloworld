@@ -1,87 +1,80 @@
 // Bright & Early — daily edition builder.
 //
-// Pipeline:  fetch (4 sources) -> local prefilter -> Claude curation -> write JSON
+// Pipeline:  web search (4 topical) -> enrich pages -> strict "yesterday" filter
+//            -> curate/promote -> deepen summaries -> write JSON + share pages
 //
-// Designed to degrade gracefully:
-//   - Sources without an API key are skipped (GDELT + RSS need none).
-//   - Without ANTHROPIC_API_KEY, it falls back to the local sentiment ranking.
-// So `npm run build` produces an edition even with zero configuration.
+// Sourcing is Claude web search via OpenRouter's web plugin (Anthropic-native
+// search), so every candidate is a specific, dated article. That lets us keep
+// ONLY stories actually published yesterday (US Eastern), verified against each
+// article's own published-time meta — not the model's say-so. Requires
+// OPENROUTER_API_KEY; without it there's nothing to source from.
 
 import { writeFile, mkdir } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { yesterdayWindow, isoDate, truncate, clean, makeId } from "./lib/util.mjs";
-import { prefilter } from "./lib/prefilter.mjs";
-import { SECTIONS } from "./lib/curate.mjs";
-import { enrichImages } from "./lib/images.mjs";
+import { easternDateStr, editionDates, isoDay, makeId } from "./lib/util.mjs";
+import { SECTIONS, curate, resummarize } from "./lib/curate.mjs";
+import { enrichArticles } from "./lib/enrich.mjs";
 import { writeSite } from "./lib/pages.mjs";
-
-import { fetchGuardian } from "./sources/guardian.mjs";
-import { fetchGnews } from "./sources/gnews.mjs";
-import { fetchGdelt } from "./sources/gdelt.mjs";
-import { fetchRss } from "./sources/rss.mjs";
+import { searchTopics } from "./sources/websearch.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = join(ROOT, "public", "data");
 
 async function main() {
   const now = new Date();
-  const window = yesterdayWindow(now);
-  console.log(`\n📰 Building Bright & Early edition for ${isoDate(now)} (window since ${window.fromISO})\n`);
+  const dateStr = easternDateStr(now, 0); // publication day (this morning, ET)
+  const allowed = editionDates(now); // [yesterday] — or wider via EDITION_DAYS
+  console.log(`\n📰 Building Bright & Early for ${dateStr} — only stories published ${allowed.join(" or ")} (US Eastern)\n`);
 
-  // 1. Fetch from all sources in parallel; never let one failure sink the build.
-  const sinceMs = window.fromDate.getTime();
-  const results = await Promise.allSettled([
-    fetchGuardian(window),
-    fetchGnews(window),
-    fetchGdelt(),
-    fetchRss({ sinceMs }),
-  ]);
-
-  const all = [];
-  for (const r of results) {
-    if (r.status !== "fulfilled") {
-      console.warn("  ! a source threw:", r.reason?.message || r.reason);
-      continue;
-    }
-    const { source, items, skipped } = r.value;
-    if (skipped) console.log(`  - ${source}: skipped (${skipped})`);
-    else console.log(`  ✓ ${source}: ${items.length} stories`);
-    all.push(...items);
-  }
-  console.log(`\n  Total fetched: ${all.length}`);
-
-  // 2. Local prefilter: drop obvious negatives, dedupe, rough positivity sort.
-  const candidates = prefilter(all, { limit: 120 });
-  console.log(`  After prefilter: ${candidates.length} candidates`);
-
-  // 3. Curate. OpenRouter LLM if we have a key; otherwise the local ranking.
-  let stories;
-  if (process.env.OPENROUTER_API_KEY) {
-    try {
-      const { curate } = await import("./lib/curate.mjs");
-      stories = await curate(candidates);
-      const model = process.env.OPENROUTER_MODEL || "openai/gpt-4o-mini";
-      console.log(`  ✨ Curated ${stories.length} stories via OpenRouter (${model})`);
-    } catch (err) {
-      console.warn(`  ! curation failed (${err.message}); falling back to local ranking`);
-      stories = localEdition(candidates);
-    }
-  } else {
-    console.log("  (no OPENROUTER_API_KEY — using local sentiment ranking)");
-    stories = localEdition(candidates);
+  if (!process.env.OPENROUTER_API_KEY) {
+    console.error("✗ OPENROUTER_API_KEY is required — web search is the only source. Set it in .env or the GitHub secret.");
+    process.exit(1);
   }
 
-  // 4. Fill in any missing story images from each article's og:image.
-  const cover = await enrichImages(stories);
-  console.log(`  🖼  Images: ${cover.have}/${cover.total} stories illustrated`);
+  // 1. Search each topical section for yesterday's heart-warming stories.
+  let candidates = await searchTopics(allowed[0]);
+  console.log(`\n  Found ${candidates.length} candidate stories`);
 
-  // 5. Assemble and write the edition. Give each story a stable id (from its
-  //    URL) so the front-end and the per-story share pages agree.
-  const withIds = stories.map((s) => ({ id: makeId(s.url), ...s }));
+  // 2. Fetch each candidate's page once: og:image + body text + the article's
+  //    OWN published date (which we trust over the model's claim).
+  const enr = await enrichArticles(candidates);
+  console.log(`  🖼  ${enr.withImage}/${enr.total} illustrated · ${enr.withText}/${enr.total} with text · ${enr.withDate}/${enr.total} date-verified`);
+
+  // 3. Strict filter: keep only stories whose resolved publish date is allowed.
+  //    Prefer the article's own date; fall back to the model's claim if absent.
+  //    Requiring a real published-date naturally rejects homepages and bad URLs.
+  const before = candidates.length;
+  candidates = candidates.filter((c) => {
+    const day = c._pubdate || isoDay(c.publishedAt);
+    if (day) c.publishedAt = day;
+    return day && allowed.includes(day);
+  });
+  console.log(`  📅 ${candidates.length}/${before} published ${allowed.join(" or ")} (dropped ${before - candidates.length} off-day/undated)`);
+
+  if (!candidates.length) {
+    console.warn("  ! Nothing matched the date window. If this keeps happening, widen with EDITION_DAYS=2.");
+  }
+
+  // 4. Curate: the editor selects, files into sections, and promotes the warmest
+  //    stories to the Global Wins front page. Body text is carried forward.
+  let stories = await curate(candidates);
+  console.log(`  ✨ Curated ${stories.length} stories into the edition`);
+
+  // 5. Stable ids, then deepen each chosen summary from its real article text.
+  stories = stories.map((s) => ({ id: makeId(s.url), ...s }));
+  try {
+    stories = await resummarize(stories);
+    console.log(`  ✍️  Summaries deepened from article text`);
+  } catch (err) {
+    console.warn(`  ! re-summarization failed (${err.message}); keeping first-pass summaries`);
+  }
+
+  // 6. Assemble + write (drop the transient body text / pubdate scratch fields).
+  const withIds = stories.map(({ _text, _pubdate, ...s }) => s);
   const edition = {
-    date: isoDate(now),
+    date: dateStr,
     generatedAt: now.toISOString(),
     masthead: "Bright & Early",
     tagline: "Yesterday's good news, bright and early.",
@@ -94,25 +87,11 @@ async function main() {
   await writeFile(join(DATA_DIR, "latest.json"), JSON.stringify(edition, null, 2));
   await writeFile(join(DATA_DIR, "editions", `${edition.date}.json`), JSON.stringify(edition, null, 2));
 
-  // 6. Generate shareable per-story pages (Open Graph tags) + sitemap.
+  // 7. Generate shareable per-story pages (Open Graph tags) + sitemap.
   const pageCount = await writeSite(edition, join(ROOT, "public"));
   console.log(`  🔗 Wrote ${pageCount} shareable story pages + sitemap.xml`);
 
   console.log(`\n✅ Wrote edition with ${withIds.length} stories to public/data/latest.json\n`);
-}
-
-// Fallback edition built purely from the local prefilter scores.
-function localEdition(candidates) {
-  return candidates.slice(0, 16).map((c) => ({
-    headline: c.title,
-    summary: c.description ? truncate(clean(c.description), 200) : "",
-    section: SECTIONS[0],
-    positivity: Math.min(1, 0.5 + c._score * 0.1),
-    url: c.url,
-    image: c.image,
-    source: c.source,
-    publishedAt: c.publishedAt,
-  }));
 }
 
 main().catch((err) => {

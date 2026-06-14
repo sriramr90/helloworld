@@ -50,6 +50,31 @@ export function yesterdayWindow(now = new Date()) {
   return { fromISO: isoDate(from), toISO: isoDate(to), fromDate: from, toDate: to };
 }
 
+/** Calendar date in US Eastern (the edition's timezone), shifted by offsetDays. */
+export function easternDateStr(d = new Date(), offsetDays = 0) {
+  const ymd = d.toLocaleDateString("en-CA", { timeZone: "America/New_York" }); // YYYY-MM-DD
+  const base = new Date(`${ymd}T00:00:00Z`);
+  base.setUTCDate(base.getUTCDate() + offsetDays);
+  return base.toISOString().slice(0, 10);
+}
+
+/** Allowed publish dates for an edition. Default: yesterday only (US Eastern).
+ *  EDITION_DAYS=2 widens to yesterday + the day before — a thin-news safety valve. */
+export function editionDates(now = new Date()) {
+  const days = Math.max(1, parseInt(process.env.EDITION_DAYS || "1", 10));
+  const dates = [];
+  for (let i = 1; i <= days; i++) dates.push(easternDateStr(now, -i));
+  return dates;
+}
+
+/** Normalize any date-ish value to a YYYY-MM-DD string (UTC day), or null. */
+export function isoDay(v) {
+  if (!v) return null;
+  const d = new Date(v);
+  if (!Number.isNaN(d.getTime())) return d.toISOString().slice(0, 10);
+  return typeof v === "string" && /^\d{4}-\d{2}-\d{2}/.test(v) ? v.slice(0, 10) : null;
+}
+
 /** Stable-ish id from a url/title so the front-end and curator can agree. */
 export function makeId(str) {
   let h = 0;
