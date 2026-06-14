@@ -1,6 +1,11 @@
 {
-  "count": 10,
+  "count": 11,
   "editions": [
+    {
+      "date": "2026-06-11",
+      "storyCount": 14,
+      "lead": "Twenty-One-Year-Old Bryce Eldridge Hits Walk-Off Grand Slam, Youngest Ever to End a Game This Way"
+    },
     {
       "date": "2026-06-10",
       "storyCount": 12,
