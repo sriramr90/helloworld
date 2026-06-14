@@ -40,7 +40,12 @@ function hostOf(url) {
   }
 }
 
-async function searchTopic(topic, dateStr, { key, model }) {
+async function searchTopic(topic, dates, { key, model }) {
+  const list = dates.join(" or ");
+  const phrase =
+    dates.length > 1
+      ? `published in the last 48 hours — on ${list}`
+      : `published on ${dates[0]} (yesterday)`;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 60000);
   try {
@@ -60,7 +65,7 @@ async function searchTopic(topic, dateStr, { key, model }) {
           { role: "system", content: SYSTEM },
           {
             role: "user",
-            content: `Find up to 6 ${topic.brief} stories published on ${dateStr} (yesterday). Only stories actually published on ${dateStr}. Copy each url exactly from the search results.`,
+            content: `Find up to 8 ${topic.brief} stories ${phrase}. Only include stories actually published on one of those dates (${list}). Copy each url exactly from the search results.`,
           },
         ],
       }),
@@ -93,8 +98,9 @@ async function searchTopic(topic, dateStr, { key, model }) {
   }
 }
 
-/** Run all topical searches in parallel; return a de-duplicated candidate list. */
-export async function searchTopics(dateStr) {
+/** Run all topical searches in parallel; return a de-duplicated candidate list.
+ *  `dates` is the allowed window (e.g. [yesterday, day-before]) — newest first. */
+export async function searchTopics(dates) {
   const key = process.env.OPENROUTER_API_KEY;
   if (!key) throw new Error("OPENROUTER_API_KEY not set");
   const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL;
@@ -106,7 +112,7 @@ export async function searchTopics(dateStr) {
     let lastErr;
     for (let attempt = 1; attempt <= 3; attempt++) {
       try {
-        return await searchTopic(t, dateStr, { key, model });
+        return await searchTopic(t, dates, { key, model });
       } catch (err) {
         lastErr = err;
         console.warn(`  ↻ ${t.section}: attempt ${attempt} failed (${err?.message || err})`);
