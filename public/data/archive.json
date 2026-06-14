@@ -1,6 +1,11 @@
 {
-  "count": 3,
+  "count": 4,
   "editions": [
+    {
+      "date": "2026-06-04",
+      "storyCount": 11,
+      "lead": "A Stranger's Kindness Transforms a Senior's Life—and Uncovers an Olympian's Heart"
+    },
     {
       "date": "2026-06-03",
       "storyCount": 12,
