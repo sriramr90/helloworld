@@ -1,6 +1,11 @@
 {
-  "count": 8,
+  "count": 9,
   "editions": [
+    {
+      "date": "2026-06-09",
+      "storyCount": 9,
+      "lead": "Against All Odds: Italian Cyclist Conquers Darkness to Win Giro d'Italia Stage"
+    },
     {
       "date": "2026-06-08",
       "storyCount": 10,
