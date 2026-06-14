@@ -20,10 +20,13 @@
     <meta name="twitter:card" content="summary" />
 
     <link rel="stylesheet" href="/styles.css" />
+    <!-- Apply any saved theme before first paint to avoid a flash. -->
+    <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
   </head>
   <body>
     <div class="progress" aria-hidden="true"><div class="progress__bar" id="progress"></div></div>
     <header class="topbar">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Light / dark">🌙</button>
       <div class="topbar__head">
         <h1 class="masthead">Bright &amp; Early</h1>
         <p class="dateline">

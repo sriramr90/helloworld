@@ -284,7 +284,32 @@ function setupNavigation(count) {
   setActive(0);
 }
 
+// --- Theme toggle (light/dark, remembered; follows OS until you choose) ---
+function setupTheme() {
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const mq = matchMedia("(prefers-color-scheme: dark)");
+  const effective = () => root.dataset.theme || (mq.matches ? "dark" : "light");
+  const paint = () => {
+    if (btn) btn.textContent = effective() === "dark" ? "☀️" : "🌙";
+  };
+  paint();
+  if (btn)
+    btn.addEventListener("click", () => {
+      const next = effective() === "dark" ? "light" : "dark";
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem("theme", next);
+      } catch {}
+      paint();
+    });
+  mq.addEventListener?.("change", () => {
+    if (!root.dataset.theme) paint();
+  });
+}
+
 (async () => {
+  setupTheme();
   const edition = await loadEdition();
   if (edition && edition.stories?.length) render(edition);
   else

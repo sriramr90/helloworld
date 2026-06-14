@@ -32,8 +32,25 @@ body {
 /* ---- Topbar: masthead + section tabs ---- */
 .topbar {
   flex: none;
+  position: relative;
   padding: env(safe-area-inset-top) 0.75rem 0;
 }
+.theme-toggle {
+  position: absolute;
+  top: calc(env(safe-area-inset-top) + 0.5rem);
+  right: 0.5rem;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.3rem;
+  z-index: 5;
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.theme-toggle:hover { opacity: 1; }
 .topbar__head {
   text-align: center;
   padding-top: 0.6rem;
@@ -428,15 +445,30 @@ body {
 .reader__back { font-family: var(--sans); font-size: 0.9rem; color: var(--ink-soft); text-decoration: none; }
 .reader__back:hover { color: var(--accent); }
 
+/* Dark theme tokens, reused by the manual toggle and the OS default below. */
+:root[data-theme="dark"] {
+  --paper: #1a1b22;       /* deep pre-dawn navy */
+  --ink: #ecebf2;
+  --ink-soft: #9a9db1;
+  --rule: #33353f;
+  --accent: #ff8a6b;      /* sunrise orange, lifted for dark */
+  --highlight: #ffd166;
+  --card: #23242e;
+}
+:root[data-theme="dark"] .story__img,
+:root[data-theme="dark"] .reader__img { background: #2a2c38; }
+
+/* Follow the OS only when the reader hasn't explicitly chosen a theme. */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --paper: #1a1b22;       /* deep pre-dawn navy */
+  :root:not([data-theme="light"]) {
+    --paper: #1a1b22;
     --ink: #ecebf2;
     --ink-soft: #9a9db1;
     --rule: #33353f;
-    --accent: #ff8a6b;      /* sunrise orange, lifted for dark */
+    --accent: #ff8a6b;
     --highlight: #ffd166;
     --card: #23242e;
   }
-  .story__img, .reader__img { background: #2a2c38; }
+  :root:not([data-theme="light"]) .story__img,
+  :root:not([data-theme="light"]) .reader__img { background: #2a2c38; }
 }
