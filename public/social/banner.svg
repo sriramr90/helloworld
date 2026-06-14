@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="500" viewBox="0 0 1500 500">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fcfbf8" />
+      <stop offset="1" stop-color="#ffeede" />
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd166" />
+      <stop offset="1" stop-color="#ff7a59" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1500" height="500" fill="url(#bg)" />
+
+  <!-- Rays -->
+  <g stroke="#ffb454" stroke-width="7" stroke-linecap="round">
+    <line x1="750" y1="335" x2="750" y2="305" />
+    <line x1="805" y1="350" x2="820" y2="324" />
+    <line x1="695" y1="350" x2="680" y2="324" />
+    <line x1="845" y1="390" x2="871" y2="375" />
+    <line x1="655" y1="390" x2="629" y2="375" />
+  </g>
+
+  <!-- Rising sun on the horizon -->
+  <path d="M650 445 A100 100 0 0 1 850 445 Z" fill="url(#sun)" />
+  <path d="M690 445 A60 60 0 0 1 810 445" fill="none" stroke="#fcfbf8" stroke-width="6" opacity="0.5" />
+  <line x1="120" y1="445" x2="1380" y2="445" stroke="#2b2d42" stroke-width="6" stroke-linecap="round" />
+
+  <!-- Wordmark + tagline -->
+  <text x="750" y="225" text-anchor="middle" fill="#2b2d42"
+        font-family="Georgia, 'Times New Roman', serif" font-size="122" font-weight="700"
+        style="letter-spacing:4px">Bright &amp; Early</text>
+  <text x="750" y="288" text-anchor="middle" fill="#6b6e83"
+        font-family="Georgia, 'Times New Roman', serif" font-size="34" font-style="italic">Only the good news, every morning</text>
+</svg>

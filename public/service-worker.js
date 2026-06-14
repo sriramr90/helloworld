@@ -2,7 +2,7 @@
 // App shell: cache-first.  Edition data: network-first with cache fallback,
 // so you always get the freshest paper online and yesterday's when offline.
 
-const VERSION = "bright-and-early-v12";
+const VERSION = "bright-and-early-v13";
 const SHELL = [
   "/",
   "/index.html",

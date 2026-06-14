@@ -243,6 +243,75 @@ function goToPage(i) {
   if (target) target.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
 }
 
+// When you reach the bottom of a section and keep scrolling/swiping down, glide
+// on to the next section automatically — no need to tap "next".
+function attachAutoAdvance(page, index, total) {
+  const EPS = 8;
+  let atBottom = false;
+  const checkBottom = () => {
+    atBottom = page.scrollHeight - page.scrollTop - page.clientHeight <= EPS;
+  };
+  page.addEventListener("scroll", checkBottom, { passive: true });
+  requestAnimationFrame(checkBottom); // short pages start already "at bottom"
+
+  let cooling = false;
+  const advance = () => {
+    if (cooling || index >= total - 1) return;
+    cooling = true;
+    const next = pageNodes[index + 1];
+    if (next) next.scrollTop = 0;
+    goToPage(index + 1);
+    setTimeout(() => (cooling = false), 800);
+  };
+
+  // Touch: a deliberate upward swipe while already at the bottom.
+  let startY = null;
+  let startedAtBottom = false;
+  page.addEventListener(
+    "touchstart",
+    (e) => {
+      startY = e.touches[0].clientY;
+      checkBottom();
+      startedAtBottom = atBottom;
+    },
+    { passive: true }
+  );
+  page.addEventListener(
+    "touchmove",
+    (e) => {
+      if (startY === null) return;
+      checkBottom();
+      const dy = startY - e.touches[0].clientY; // >0 = swiping up (reading on)
+      if (startedAtBottom && atBottom && dy > 70) advance();
+    },
+    { passive: true }
+  );
+  page.addEventListener("touchend", () => (startY = null), { passive: true });
+
+  // Trackpad/mouse: keep scrolling down past the bottom.
+  let accum = 0;
+  let accumAt = 0;
+  page.addEventListener(
+    "wheel",
+    (e) => {
+      checkBottom();
+      if (atBottom && e.deltaY > 0) {
+        const now = performance.now();
+        if (now - accumAt > 400) accum = 0;
+        accumAt = now;
+        accum += e.deltaY;
+        if (accum > 140) {
+          accum = 0;
+          advance();
+        }
+      } else {
+        accum = 0;
+      }
+    },
+    { passive: true }
+  );
+}
+
 function setActive(i) {
   current = i;
   const tabs = [...document.querySelectorAll(".tab")];
@@ -280,6 +349,7 @@ function setupNavigation(count) {
     { root: pager, threshold: [0.5, 0.75] }
   );
   pageNodes.forEach((p) => io.observe(p));
+  pageNodes.forEach((p, i) => attachAutoAdvance(p, i, count));
 
   setActive(0);
 }
