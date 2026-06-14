@@ -61,6 +61,8 @@ function storyPage(story, edition) {
         <a class="reader__back" href="/">← More good news from Bright &amp; Early</a>
       </div>
     </article>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "10151da66b064971ae05d8decb16b063"}'></script>
   </body>
 </html>
 `;
