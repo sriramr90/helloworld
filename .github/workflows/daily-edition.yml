@@ -3,10 +3,11 @@ name: Daily edition
 # Builds tomorrow morning's edition and publishes it to GitHub Pages.
 on:
   schedule:
-    # 10:00 UTC = 6 AM US Eastern / 5 AM Central / 3 AM Pacific — the edition is
-    # built and emailed so it's ready and waiting before North America wakes up.
-    # (Cron is fixed UTC, so in winter/EST this lands an hour earlier, ~5 AM ET.)
-    - cron: "0 10 * * *"
+    # 10:23 UTC ≈ 6:23 AM US Eastern — built/emailed before North America wakes.
+    # Minute 23 (not :00) on purpose: GitHub delays/drops scheduled runs at the
+    # top of the hour under load, so an off-peak minute fires more reliably.
+    # (Cron is fixed UTC, so in winter/EST this lands an hour earlier, ~5:23 ET.)
+    - cron: "23 10 * * *"
   workflow_dispatch: {} # let you trigger a build by hand
   push:
     branches: [main, master]
@@ -25,11 +26,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - run: npm ci
@@ -43,7 +44,7 @@ jobs:
           GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
           GNEWS_API_KEY: ${{ secrets.GNEWS_API_KEY }}
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
@@ -81,4 +82,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
