@@ -271,7 +271,7 @@ function backPageEl(index, total) {
 
   page.innerHTML = `
     <div class="page__inner back__inner">
-      <div class="back__mark">— 30 —</div>
+      <div class="back__mark">— the end —</div>
       <h2 class="back__title">That's all the good news for today.</h2>
       <p class="back__lede">Close the paper, smile, and get on with your day. We'll have a fresh edition for you tomorrow morning.</p>
       <div class="back__block">
