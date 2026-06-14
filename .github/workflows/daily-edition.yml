@@ -3,7 +3,10 @@ name: Daily edition
 # Builds tomorrow morning's edition and publishes it to GitHub Pages.
 on:
   schedule:
-    - cron: "0 11 * * *" # 11:00 UTC daily ≈ early morning in the Americas
+    # 10:00 UTC = 6 AM US Eastern / 5 AM Central / 3 AM Pacific — the edition is
+    # built and emailed so it's ready and waiting before North America wakes up.
+    # (Cron is fixed UTC, so in winter/EST this lands an hour earlier, ~5 AM ET.)
+    - cron: "0 10 * * *"
   workflow_dispatch: {} # let you trigger a build by hand
   push:
     branches: [main, master]
