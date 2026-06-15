@@ -8,7 +8,12 @@ on:
     # top of the hour under load, so an off-peak minute fires more reliably.
     # (Cron is fixed UTC, so in winter/EST this lands an hour earlier, ~5:23 ET.)
     - cron: "23 10 * * *"
-  workflow_dispatch: {} # let you trigger a build by hand
+  workflow_dispatch: # trigger a build by hand
+    inputs:
+      send_newsletter:
+        description: "Also email the edition to Buttondown subscribers (use when the morning cron missed)"
+        type: boolean
+        default: false
   push:
     branches: [main, master]
 
@@ -51,7 +56,9 @@ jobs:
       # Email the edition to subscribers — ONLY on the daily schedule (never on
       # pushes), and only if a Buttondown key is configured (else it no-ops).
       - name: Send the morning newsletter
-        if: github.event_name == 'schedule'
+        # Auto on the daily schedule; on a manual run only if you opt in (handy
+        # when the cron missed and you want subscribers to still get the edition).
+        if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.send_newsletter)
         run: node scripts/send-newsletter.mjs
         env:
           BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
