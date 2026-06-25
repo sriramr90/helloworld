@@ -1,6 +1,6 @@
 {
   "date": "2026-06-25",
-  "generatedAt": "2026-06-25T12:35:02.322Z",
+  "generatedAt": "2026-06-25T12:40:22.401Z",
   "masthead": "Bright & Early",
   "tagline": "Yesterday's good news, bright and early.",
   "sections": [
@@ -10,12 +10,12 @@
     "Kind Humans",
     "Earth Restored"
   ],
-  "storyCount": 11,
+  "storyCount": 9,
   "stories": [
     {
       "id": "s17de6hh",
-      "headline": "South Africa Fulfills Every Wish on Nine-Year-Old Zelnay's Bucket List in Just 12 Hours",
-      "summary": "A community rallied to grant every single dream on a brave girl's bucket list, turning wishes into cherished memories through collective love.",
+      "headline": "South Africa Unites to Fulfill Every Dream on Nine-Year-Old's Bucket List in 12 Hours",
+      "summary": "An entire community rallied to make all of Zelnay's wishes come true in a single day of pure love and generosity.",
       "section": "Global Wins",
       "positivity": 0.95,
       "url": "https://www.goodthingsguy.com/south-africans-fulfil-every-wish-on-brave-zelnays-bucket-list-in-just-12-hours/",
@@ -23,51 +23,40 @@
       "publishedAt": "2026-06-23"
     },
     {
-      "id": "s7c1jqz",
-      "headline": "Firefighters and Town Rally to Rescue Student's Graduation Dress, Saving the Day",
-      "summary": "When chaos threatened a graduation, firefighters and strangers united to retrieve a precious dress and turn the moment into pure celebration.",
+      "id": "s1iiu8k3",
+      "headline": "Children With Disabilities Play on Major League Diamond, Welcomed as Stars by White Sox",
+      "summary": "Young athletes with special needs experienced the magic of a big league field, cheered on by professional players who showed them baseball's true heart.",
       "section": "Global Wins",
       "positivity": 0.92,
-      "url": "https://www.kingstonist.com/news/im-here-to-rescue-a-graduation-dress-firefighters-town-staff-strangers-rally-to-save-graduation-for-selby-student/",
-      "source": "kingstonist.com",
+      "url": "https://wgntv.com/sports/white-sox/white-sox-host-miracle-league-game-celebrating-inclusion-and-fun-at-rate-field/",
+      "source": "wgntv.com",
       "publishedAt": "2026-06-24"
     },
     {
       "id": "s19fougb",
-      "headline": "Golden Retriever Opens a 'Kissing Booth' and Spreads Free Joy to the Whole Neighborhood",
-      "summary": "A kind woman shares her golden retriever's friendly licks and warmth with neighbors through her window—free cuddles and smiles every single day.",
-      "section": "Kind Humans",
-      "positivity": 0.91,
+      "headline": "Golden Retriever's Daily 'Kissing Booth' Spreads Neighborhood Joy, One Free Hug at a Time",
+      "summary": "A Waltham woman opens her window daily so neighbors can get free hugs and licks from her golden retriever, brightening every passing day.",
+      "section": "Global Wins",
+      "positivity": 0.9,
       "url": "https://goodnewsintheworld.com/passersby-get-free-pooch-smooch-at-golden-retriever-kissing-booth-in-massachusetts-town/",
       "source": "goodnewsintheworld.com",
       "publishedAt": "2026-06-23"
     },
     {
       "id": "s7quzk9",
-      "headline": "Pigs Walk Again: Scientists Restore Movement with Experimental Spinal Cord Gel",
-      "summary": "Scientist Michael Lebenstein-Gumovski's fusogen-based gel reconnected severed spinal cords in pigs, restoring their ability to walk within two months—offering profound hope for human patients.",
+      "headline": "Pigs Walk Again After Experimental Gel Heals Severed Spinal Cords—New Hope for Paralyzed Humans",
+      "summary": "Led by Michael Lebenstein-Gumovski, scientists in Russia reconnected severed spinal cords in pigs using a fusogen gel, restoring their ability to walk.",
       "section": "Global Wins",
-      "positivity": 0.9,
+      "positivity": 0.88,
       "url": "https://medicalxpress.com/news/2026-06-spinal-injuries-pigs-experimental-gel.html",
       "image": "https://scx2.b-cdn.net/gfx/news/2026/hope-for-spinal-injuri.jpg",
       "source": "medicalxpress.com",
       "publishedAt": "2026-06-23"
     },
     {
-      "id": "seejmj7",
-      "headline": "Against the Odds: Kordofan Giraffes Make Stunning Comeback in Congo",
-      "summary": "Garamba National Park's Kordofan giraffes surged from 22 in 2012 to 105 today, with zero poaching since 2017—a stunning conservation triumph for Africa's most endangered subspecies.",
-      "section": "Global Wins",
-      "positivity": 0.88,
-      "url": "https://friendsofthecongo.org/drc-kordofan-giraffe-population-has-increased-fivefold-in-fourteen-years-in-garamba-national-park/",
-      "image": "https://friendsofthecongo.org/wp-content/uploads/2026/06/12312321.jpg",
-      "source": "friendsofthecongo.org",
-      "publishedAt": "2026-06-24"
-    },
-    {
       "id": "s2nffhp",
-      "headline": "Community Gives $3,000 Bay Window to Family With Neurodivergent Children",
-      "summary": "KT Fairglass donated a $3,000 bay window to Gordon Passmore's family on 43rd Street, transforming a drafty, heat-losing home into a warmer, brighter space for his neurodivergent children.",
+      "headline": "Local Glass Company Installs $3,000 Bay Window for Free, Warming a Family's Home and Heart",
+      "summary": "Todd Embley's KT Fairglass installed a $3,000 bay window for free on 43rd Street, helping homeowner Gordon Passmore end drafty heat loss in his home.",
       "section": "Kind Humans",
       "positivity": 0.87,
       "url": "https://vernonmatters.ca/2026/06/23/window-installed-at-local-home-through-community-give-back-program/",
@@ -76,30 +65,31 @@
       "publishedAt": "2026-06-23"
     },
     {
-      "id": "s1u1m14p",
-      "headline": "Critically Endangered Marmots Return to the Wild as Population Soars from 30 to 400",
-      "summary": "Four Vancouver Island marmots released on Mount Washington mark a stunning conservation triumph—a breeding program brought the critically endangered species back from 30 to 400.",
+      "id": "s1o9nxeq",
+      "headline": "Critically Endangered Marmots Surge to Highest Numbers in 40 Years, 4 Released Into the Wild",
+      "summary": "Vancouver Island marmots surged from fewer than 30 to over 400—the highest in 40 years—with 40 released this summer by the Marmot Recovery Foundation.",
       "section": "Earth Restored",
-      "positivity": 0.86,
-      "url": "https://comoxvalleyrecord.com/2026/06/24/wild-and-precious-life-four-marmots-released-on-mount-washington/",
-      "image": "https://comoxvalleyrecord.com/wp-content/uploads/sites/13/2026/06/42649088_web1_260701-CVR-Marmots_1.jpg?w=1024",
-      "source": "comoxvalleyrecord.com",
-      "publishedAt": "2026-06-24"
+      "positivity": 0.85,
+      "url": "https://globalnews.ca/news/11918632/4-marmots-released-wild-vancouver-island-breeding-program/",
+      "image": "https://globalnews.ca/wp-content/uploads/2026/06/vancouver-island-marmots.png?w=720&h=379&crop=1",
+      "source": "globalnews.ca",
+      "publishedAt": "2026-06-23"
     },
     {
       "id": "s1o7yliw",
-      "headline": "Curaçao's Goalkeeper Delivers Historic First World Cup Point in Stunning Debut",
-      "summary": "Debutant nation Curaçao secured their first-ever World Cup point with a goalless draw, anchored by keeper Eloy Room's sensational, heart-stopping performance.",
+      "headline": "Curaçao's Goalkeeper Delivers Masterclass, Secures Nation's Historic First World Cup Point",
+      "summary": "Goalkeeper Eloy Room delivered a masterclass, leading Curaçao to a historic 0-0 draw with Ecuador to secure the nation's first-ever World Cup point.",
       "section": "Fair Play & Triumphs",
-      "positivity": 0.85,
+      "positivity": 0.83,
       "url": "https://sportnationhq.com/news/eloy-room-s-heroics-earn-curacao-historic-world-cup-point/",
+      "image": "https://sportnationhq.com/assets/img/covers/eloy-room-s-heroics-earn-curacao-historic-world-cup-point.svg?v=mqthpbuv",
       "source": "sportnationhq.com",
       "publishedAt": "2026-06-23"
     },
     {
       "id": "sjsv8h3",
-      "headline": "Scientists Create 'Nanotrap' That Captures HIV and Awakens the Body's Defenses",
-      "summary": "Researchers from Drexel University and University of Pennsylvania engineered a 'nanotrap' that disguises itself as an immune cell to lure, trap, and awaken the body's defenses against HIV.",
+      "headline": "Scientists Design 'Nanotrap' That Catches HIV and Triggers Immune Response—A Step Toward Vaccine",
+      "summary": "Researchers from Drexel University and University of Pennsylvania created a biological 'nanotrap' using liposomes to catch HIV and trigger immune response.",
       "section": "Future Proof",
       "positivity": 0.82,
       "url": "https://phys.org/news/2026-06-nanotrap-hiv-liposomes-repurposed-trigger.html",
@@ -108,24 +98,14 @@
       "publishedAt": "2026-06-24"
     },
     {
-      "id": "s1da17aw",
-      "headline": "Battery-Free Device Turns Sunlight into Fuel That Powers Itself",
-      "summary": "Osaka scientists created an artificial photosynthesis system that harvests solar energy to convert water and CO₂ into fuel, with self-regulation built right in.",
-      "section": "Future Proof",
+      "id": "seejmj7",
+      "headline": "Kordofan Giraffes Rebound Fivefold in DRC After Poaching Stopped—From 22 to 105 in 14 Years",
+      "summary": "Kordofan giraffes in Garamba National Park surged from 22 to 105 since 2012, with zero poaching recorded since 2017 thanks to strengthened protection.",
+      "section": "Earth Restored",
       "positivity": 0.8,
-      "url": "https://energiesmedia.com/osaka-battery-free-photosynthesis-energies/",
-      "source": "energiesmedia.com",
-      "publishedAt": "2026-06-24"
-    },
-    {
-      "id": "s1j7sfiw",
-      "headline": "India's Homegrown Antibiotic Gets FDA Nod After 17 Years—a New Hope Against Superbugs",
-      "summary": "After 17 years of development, Wockhardt's ZAYNICH antibiotic won FDA approval—India's first fully homegrown drug discovery achieving this milestone, offering powerful hope against drug-resistant bacteria.",
-      "section": "Future Proof",
-      "positivity": 0.78,
-      "url": "https://indianexpress.com/article/health-wellness/india-first-us-fda-approved-antibiotic-fight-superbugs-10754492/",
-      "image": "https://images.indianexpress.com/2026/06/Dr-Habil-F.-Khorakiwala.jpg",
-      "source": "indianexpress.com",
+      "url": "https://friendsofthecongo.org/drc-kordofan-giraffe-population-has-increased-fivefold-in-fourteen-years-in-garamba-national-park/",
+      "image": "https://friendsofthecongo.org/wp-content/uploads/2026/06/12312321.jpg",
+      "source": "friendsofthecongo.org",
       "publishedAt": "2026-06-24"
     }
   ]
