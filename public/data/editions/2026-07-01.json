@@ -1,6 +1,6 @@
 {
   "date": "2026-07-01",
-  "generatedAt": "2026-07-01T12:40:19.560Z",
+  "generatedAt": "2026-07-01T13:14:35.955Z",
   "masthead": "Bright & Early",
   "tagline": "Yesterday's good news, bright and early.",
   "sections": [
@@ -13,83 +13,72 @@
   "storyCount": 14,
   "stories": [
     {
-      "id": "selpom0",
-      "headline": "From Hospital Bed to World Cup Starter: Giuliano Simeone's Three-Year Journey",
-      "summary": "Giuliano Simeone fulfilled a hospital bed promise by starting for Argentina at the World Cup, playing 71 minutes against Jordan three years after a devastating injury.",
+      "id": "sqoq5k3",
+      "headline": "Young Goalkeeper's Dream Realized: Paraguay Stuns Germany in World Cup Shootout",
+      "summary": "First-time World Cup goalkeeper Orlando Gill defeated his idol Manuel Neuer to send underdog Paraguay past four-time champions Germany on penalties.",
       "section": "Global Wins",
       "positivity": 0.92,
+      "url": "https://triblive.com/sports/paraguay-goalkeeper-orlando-gill-bests-german-idol-manuel-neuer-in-world-cup-shootout-stunner/",
+      "source": "triblive.com",
+      "publishedAt": "2026-06-30"
+    },
+    {
+      "id": "selpom0",
+      "headline": "From Hospital Bed to World Cup Starter: A Son's Unshakeable Belief",
+      "summary": "After a career-threatening injury, Giuliano Simeone started for Argentina against Jordan three years later, fulfilling a promise he made from his darkest moment.",
+      "section": "Global Wins",
+      "positivity": 0.89,
       "url": "https://www.marca.com/en/world-cup/2026/06/29/the-promise-giuliano-simeone-made-from-hospital-bed-and-fulfilled-at-the-world-cup-i-chose-to-believe.html",
       "image": "https://e00-xlk-ue-marca-en.uecdn.es/files/article_main_microformat/uploads/2026/06/29/6a42da2797cf9.png",
       "source": "marca.com",
       "publishedAt": "2026-06-29"
     },
     {
-      "id": "sqoq5k3",
-      "headline": "Underdog Goalkeeper Defeats His Idol: Paraguay Stuns Germany in World Cup Shootout",
-      "summary": "Young Paraguay goalkeeper Orlando Gill stopped his idol Manuel Neuer in a penalty shootout that sent four-time champion Germany home.",
-      "section": "Global Wins",
-      "positivity": 0.89,
-      "url": "https://triblive.com/sports/paraguay-goalkeeper-orlando-gill-bests-german-idol-manuel-neuer-in-world-cup-shootout-stunner/",
-      "source": "triblive.com",
-      "publishedAt": "2026-06-30"
+      "id": "smavznz",
+      "headline": "Officer Rents Movie Theater So 144 Students Get Their First Big-Screen Experience",
+      "summary": "Phoenix school resource officer Sean Reavie rented an entire theatre for low-income middle schoolers to watch Toy Story 5, gifting many their first cinema memory.",
+      "section": "Kind Humans",
+      "positivity": 0.88,
+      "url": "https://thedailygoods.com/heroes/a-school-resource-officer-rented-out-a-movie-theater-for-students-after-field-trip-funding-fell-through/",
+      "source": "thedailygoods.com",
+      "publishedAt": "2026-06-29"
     },
     {
       "id": "sku6mv3",
-      "headline": "Theatre Friends Secretly Raise Funds to Buy Patricia Her First Reliable Car",
-      "summary": "Patricia Alexander, who quietly organized costumes for years, was surprised by theatre friends who secretly raised funds to buy her a dependable used vehicle.",
+      "headline": "Theatre Community's Gift Opens 'Whole New Chapter' for Pat Alexander",
+      "summary": "Brockville volunteers surprised longtime theatre member Pat Alexander with a donated vehicle, restoring her independence and joy.",
       "section": "Global Wins",
-      "positivity": 0.88,
+      "positivity": 0.87,
       "url": "https://brockvilleist.com/2026/06/30/this-opens-up-a-whole-new-chapter-in-my-life-brockville-community-rallies-to-surprise-longtime-theatre-member-with-life-changing-gift/",
       "source": "brockvilleist.com",
       "publishedAt": "2026-06-30"
     },
     {
-      "id": "s1du0n5k",
-      "headline": "Puffins Thrive Again: Lundy Island's Seabirds Rise from the Brink",
-      "summary": "After 20 years of conservation, puffins, razorbills, and guillemots on Lundy Island reached over 40,000—their highest numbers since the 1930s.",
-      "section": "Global Wins",
-      "positivity": 0.87,
-      "url": "https://www.independent.co.uk/news/uk/home-news/lundy-island-seabird-population-rats-b3005811.html",
-      "image": "https://static.independent.co.uk/2026/06/30/12/2278313415..?trim=0,0,1,0&width=1200&height=800&crop=1200:800",
-      "source": "independent.co.uk",
-      "publishedAt": "2026-06-30"
-    },
-    {
-      "id": "smavznz",
-      "headline": "School Resource Officer Rents Theatre for 144 Students After Field Trip Falls Through",
-      "summary": "Officer Sean Reavie rented all 144 seats at a Phoenix theatre so seventh and eighth graders could see Toy Story 5, with several experiencing their first movie theatre visit.",
+      "id": "srky7fc",
+      "headline": "Two Neighbors Stayed Behind in Evacuation to Feed the Village's Dogs",
+      "summary": "When residents fled wildfire danger, two compassionate people remained to care for abandoned pets, refusing to leave them alone.",
       "section": "Kind Humans",
       "positivity": 0.86,
-      "url": "https://thedailygoods.com/heroes/a-school-resource-officer-rented-out-a-movie-theater-for-students-after-field-trip-funding-fell-through/",
-      "image": "https://thedailygoods.com/wp-content/uploads/2026/06/2e6fbd31-b459-4b2f-80b4-425e01a2d782_1140x641.jpg",
-      "source": "thedailygoods.com",
-      "publishedAt": "2026-06-29"
-    },
-    {
-      "id": "srky7fc",
-      "headline": "Two Heroes Refuse Evacuation to Feed Abandoned Pets",
-      "summary": "Diedra Villeneuve and Derek Mckillop stayed behind during evacuation, driving through the village with donated dog food to care for abandoned pets.",
-      "section": "Kind Humans",
-      "positivity": 0.85,
       "url": "https://cabinradio.ca/298278/news/environment/wildfires/these-two-people-stayed-behind-to-help-feed-fort-simpsons-dogs/",
       "image": "https://cabinradio.ca/wp-content/uploads/2026/06/IMG_0142.jpg",
       "source": "cabinradio.ca",
       "publishedAt": "2026-06-30"
     },
     {
-      "id": "s1nmgubh",
-      "headline": "Sea Turtles Return in Record Numbers: Tybee Island Celebrates Biggest Nesting Season Ever",
-      "summary": "Tybee Island celebrates record-breaking 39 sea turtle nests, proving three decades of dedicated protection efforts are finally bearing fruit.",
-      "section": "Earth Restored",
+      "id": "s1du0n5k",
+      "headline": "Lundy's Puffins Soar from 13 to 1,335: Island's Seabird Recovery Reaches 40-Year High",
+      "summary": "Lundy Island's puffin population exploded from just 13 to 1,335 after rat removal, reaching the highest seabird count since the 1930s.",
+      "section": "Global Wins",
       "positivity": 0.85,
-      "url": "https://www.wsav.com/environmental-news/2026-sea-turtle-nesting-season-biggest-ever-on-tybee-island-officials-announce/",
-      "source": "wsav.com",
+      "url": "https://www.independent.co.uk/news/uk/home-news/lundy-island-seabird-population-rats-b3005811.html",
+      "image": "https://static.independent.co.uk/2026/06/30/12/2278313415..?trim=0,0,1,0&width=1200&height=800&crop=1200:800",
+      "source": "independent.co.uk",
       "publishedAt": "2026-06-30"
     },
     {
       "id": "s1jnckel",
-      "headline": "Serena Williams Returns to Singles Play at 44, Inspiring a Generation",
-      "summary": "Playing her first singles match in four years at 44, Serena Williams reminded the world that joy and passion for the game matter more than wins or losses.",
+      "headline": "Serena Returns to Tennis for Her Daughters and Savors Every Moment",
+      "summary": "After four years away, Serena Williams played her heart out in her comeback match, cherishing the chance to perform for her daughters.",
       "section": "Fair Play & Triumphs",
       "positivity": 0.84,
       "url": "https://www.nbcsports.com/tennis/news/serena-williams-wimbledon-result-comeback",
@@ -98,20 +87,9 @@
       "publishedAt": "2026-06-30"
     },
     {
-      "id": "sp8uvzi",
-      "headline": "Scientists Grow Eye Cells That Restore Sight in Mice",
-      "summary": "Duke engineers grew specialized retinal blood vessel cells from stem cells that regenerated damaged tissue and fully restored vision in mice.",
-      "section": "Future Proof",
-      "positivity": 0.83,
-      "url": "https://neurosciencenews.com/ipsc-retinal-endothelial-cells-regeneration-30968/",
-      "image": "https://neurosciencenews.com/files/2026/06/retinal-cells-vision-loss-neuroscience.jpg",
-      "source": "neurosciencenews.com",
-      "publishedAt": "2026-06-30"
-    },
-    {
       "id": "s1xx1faf",
-      "headline": "Restaurant Opens Doors Free to Wildfire Victims, Prioritizing Healing Over Profit",
-      "summary": "Restaurant owner Jennifer Priest opened her doors to wildfire victims with free meals and gathering space, choosing community care over business concerns.",
+      "headline": "Restaurant Owner Feeds Wildfire Victims Every Day, Honoring Community That Helped Her",
+      "summary": "A Pueblo business owner opened her doors daily with free meals for families displaced by wildfires, repaying the kindness she once received.",
       "section": "Kind Humans",
       "positivity": 0.82,
       "url": "https://krdo.com/news/2026/06/29/pueblo-business-offers-free-food-wife-to-wildfire-victims/",
@@ -121,8 +99,8 @@
     },
     {
       "id": "s13020lt",
-      "headline": "New T-Cell Therapy Shows Early Promise Against Deadly Childhood Brain Cancers",
-      "summary": "Children's National Hospital's phase 1 trial of a new T-cell therapy showed lasting clinical benefit in children with deadly brain tumors like DIPG, offering hope where few options existed.",
+      "headline": "Breakthrough T-Cell Therapy Offers New Hope for Children with Deadly Brain Tumors",
+      "summary": "Children's National Hospital's multitargeted T-cell therapy shows encouraging early results for children with deadly brain tumors like DIPG with fewer severe side effects.",
       "section": "Future Proof",
       "positivity": 0.81,
       "url": "https://medicalxpress.com/news/2026-06-tcell-therapy-tumor-proteins-early.html",
@@ -131,34 +109,55 @@
       "publishedAt": "2026-06-30"
     },
     {
-      "id": "stn1gcl",
-      "headline": "Philippine Tamaraws Keep Climbing Back: Population Hits 425",
-      "summary": "Critically endangered Philippine tamaraws celebrate a 12% population increase, with young animals appearing in areas that sat empty just months ago.",
+      "id": "s1nmgubh",
+      "headline": "Sea Turtle Nesting Reaches Record High on Tybee Island",
+      "summary": "Tybee Island celebrates its best nesting season ever with 39 sea turtle nests, a milestone 30 years of dedicated protection made possible.",
       "section": "Earth Restored",
       "positivity": 0.81,
+      "url": "https://www.wsav.com/environmental-news/2026-sea-turtle-nesting-season-biggest-ever-on-tybee-island-officials-announce/",
+      "source": "wsav.com",
+      "publishedAt": "2026-06-30"
+    },
+    {
+      "id": "sp8uvzi",
+      "headline": "Scientists Regrow Eye Vessels and Restore Vision in Damaged Retinas",
+      "summary": "Duke engineers grew specialized retinal blood vessel cells that fully restored vision in diseased mouse eyes, opening doors to treating human vision loss.",
+      "section": "Future Proof",
+      "positivity": 0.8,
+      "url": "https://neurosciencenews.com/ipsc-retinal-endothelial-cells-regeneration-30968/",
+      "image": "https://neurosciencenews.com/files/2026/06/retinal-cells-vision-loss-neuroscience.jpg",
+      "source": "neurosciencenews.com",
+      "publishedAt": "2026-06-30"
+    },
+    {
+      "id": "stn1gcl",
+      "headline": "Philippines' Rarest Deer Population Surges with Calves Born in Reclaimed Habitats",
+      "summary": "Critically endangered tamaraws jump 12% to 425 animals, with observers spotting young calves in areas previously empty, proving conservation works.",
+      "section": "Earth Restored",
+      "positivity": 0.79,
       "url": "https://pia.gov.ph/news/more-tamaraws-roam-mounts-iglit-baco-as-population-reaches-425/",
       "source": "pia.gov.ph",
       "publishedAt": "2026-06-30"
     },
     {
-      "id": "s18b61y1",
-      "headline": "Young Gharial Spotted: River Ecosystem in Assam Healing at Last",
-      "summary": "A juvenile gharial spotted in Assam's Kekaidong River signals successful breeding and the healing of the state's riverine ecosystem after decades of decline.",
-      "section": "Earth Restored",
-      "positivity": 0.8,
-      "url": "https://theshillongtimes.com/2026/06/30/juvenile-gharial-sighting-signals-revival-of-assams-river-ecosystem-himanta-sarma/",
-      "source": "theshillongtimes.com",
-      "publishedAt": "2026-06-30"
-    },
-    {
       "id": "s1e2y8vt",
-      "headline": "Italy's Historic Narrow Tracks Get a Clean Future: Hydrogen Trains Arrive",
-      "summary": "Sardinia will run the world's first hydrogen trains on its historic 950mm narrow-gauge tracks from the 1800s, eliminating over 2,100 tons of CO2 yearly.",
+      "headline": "World's First Hydrogen Train Rolls Out: Zero Emissions from Power to Rails",
+      "summary": "Switzerland and Sardinia unveiled the world's first hydrogen train for narrow-gauge tracks, engineered from scratch to fit the region's 950mm historic railway lines.",
       "section": "Future Proof",
       "positivity": 0.78,
       "url": "https://newatlas.com/transport/world-first-narrow-gauge-hydrogen-train-stadler-arst/",
       "image": "https://assets.newatlas.com/dims4/default/750c0aa/2147483647/strip/true/crop/6000x3150+0+425/resize/1200x630!/quality/85/?url=https%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2F84%2Fa1%2F28e32913447ea1d7a023aa0ec40d%2Fworlds-first-hydrogen-train-narrow-gauge.jpg&na.image_optimisation=0",
       "source": "newatlas.com",
+      "publishedAt": "2026-06-30"
+    },
+    {
+      "id": "s18b61y1",
+      "headline": "Young Gharial's Appearance Signals Assam's River Revival",
+      "summary": "A juvenile gharial spotted in Assam's Kekaidong River signals the rare and encouraging revival of the state's riverine ecosystems and biodiversity.",
+      "section": "Earth Restored",
+      "positivity": 0.77,
+      "url": "https://theshillongtimes.com/2026/06/30/juvenile-gharial-sighting-signals-revival-of-assams-river-ecosystem-himanta-sarma/",
+      "source": "theshillongtimes.com",
       "publishedAt": "2026-06-30"
     }
   ]
